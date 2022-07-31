@@ -2,6 +2,9 @@ package com.example.medtimev2
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +17,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.medtimev2.R.id.preview_view
@@ -23,6 +27,8 @@ import com.google.mlkit.vision.common.InputImage
 import com.khaled.mlbarcodescanner.CameraXViewModel
 import java.lang.Math.*
 import java.util.concurrent.Executors
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.decodeFromString
 
 class reciever : AppCompatActivity() {
 
@@ -32,6 +38,7 @@ class reciever : AppCompatActivity() {
     private var lensFacing = CameraSelector.LENS_FACING_BACK
     private var previewUseCase: Preview? = null
     private var analysisUseCase: ImageAnalysis? = null
+    private var isDetected: Boolean = false
 
     private val screenAspectRatio: Int
         get() {
@@ -156,8 +163,23 @@ class reciever : AppCompatActivity() {
 
         barcodeScanner.process(inputImage)
             .addOnSuccessListener { barcodes ->
-                barcodes.forEach {
-                    it.rawValue?.let { it1 -> Log.d(TAG, it1) }
+                if (isDetected) {
+                    return@addOnSuccessListener
+                }
+                barcodes.forEach { barcode ->
+                    barcode.rawValue?.let { barcode ->
+                        Log.d(TAG, barcode)
+                        val dialog = RecordDialogFragment()
+                        dialog.record = Json.decodeFromString<Record>(barcode)
+                        dialog.show(supportFragmentManager, "RecordDialogFragment")
+                        isDetected = true
+                        dialog.addCallback = {
+                            isDetected = false
+                        }
+                        dialog.cancelCallback = {
+                            isDetected = false
+                        }
+                    }
                 }
             }
             .addOnFailureListener {
@@ -206,5 +228,29 @@ class reciever : AppCompatActivity() {
 
         private const val RATIO_4_3_VALUE = 4.0 / 3.0
         private const val RATIO_16_9_VALUE = 16.0 / 9.0
+    }
+}
+
+class RecordDialogFragment : DialogFragment() {
+    var record: Record? = null
+    var addCallback: ((Record) -> Unit)? = null
+    var cancelCallback: (() -> Unit)? = null
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return activity?.let {
+            // Use the Builder class for convenient dialog construction
+            val builder = AlertDialog.Builder(it)
+            builder.setMessage("Name: " + record?.name + "\nProperty: " + record?.property)
+                .setPositiveButton(R.string.record_add,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        addCallback?.let { it1 -> it1(record!!) }
+                    })
+                .setNegativeButton(R.string.record_cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        cancelCallback?.let { it1 -> it1() }
+                    })
+            // Create the AlertDialog object and return it
+            builder.create()
+        } ?: throw IllegalStateException("Activity cannot be null")
     }
 }
