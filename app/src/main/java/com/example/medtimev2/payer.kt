@@ -12,7 +12,7 @@ class payer : AppCompatActivity() {
 
         val actionBar = supportActionBar
 
-        actionBar!!.title = "ผู้จ่ายยา"
+        actionBar!!.title = "ผู้สร้างฉลาก"
 
         actionBar.setDisplayHomeAsUpEnabled(true)
 
