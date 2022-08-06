@@ -174,6 +174,10 @@ class reciever : AppCompatActivity() {
                         dialog.show(supportFragmentManager, "RecordDialogFragment")
                         isDetected = true
                         dialog.addCallback = {
+                            RecordService.default.addNewRecord(it)
+                            var intent = Intent(this.baseContext, RecordDetailActivity::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            this.baseContext.startActivity(intent)
                             isDetected = false
                         }
                         dialog.cancelCallback = {
