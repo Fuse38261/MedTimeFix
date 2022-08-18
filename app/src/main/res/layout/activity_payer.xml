@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="ชื่อยา"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medname" />
 
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="สรรพคุณ"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medprop" />
 
@@ -63,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="คำเตือน"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medwarn" />
 
@@ -84,6 +87,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="40dp"
         android:hint="จำนวน"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/medtime"
         app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
 
@@ -115,6 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:hint="จำนวน"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/medday"
         app:layout_constraintTop_toBottomOf="@+id/inputtime" />
 

@@ -9,10 +9,17 @@ class RecordDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_record_detail2)
+        setContentView(R.layout.item_view)
 
-        label = findViewById(R.id.textView2)
-        var firstRecord = RecordService.default.records.get(0)
-        label?.text = firstRecord.name
+        label = findViewById(R.id.nameoutput)
+        var nameRecord = RecordService.default.records.get(0)
+        label?.text = nameRecord.name
+
+        label = findViewById(R.id.countoutput)
+        var countRecord = RecordService.default.records.get(0)
+        label?.id = countRecord.timePerDay
+
+
+
     }
 }
