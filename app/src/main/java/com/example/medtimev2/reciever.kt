@@ -11,16 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
-import android.widget.Button
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.medtimev2.R.id.preview_view
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
@@ -175,7 +172,7 @@ class reciever : AppCompatActivity() {
                         isDetected = true
                         dialog.addCallback = {
                             RecordService.default.addNewRecord(it)
-                            var intent = Intent(this.baseContext, RecordDetailActivity::class.java)
+                            var intent = Intent(this.baseContext, RecordListActivity::class.java)
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             this.baseContext.startActivity(intent)
                             isDetected = false

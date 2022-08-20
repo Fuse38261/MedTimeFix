@@ -9,20 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.medtimev2.databinding.ItemViewBinding
 
 class TodoAdapter (
-    private val todos: MutableList<RecordDetailActivity>
-) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
+    private val records: MutableList<Record>
+) : RecyclerView.Adapter<TodoAdapter.RecordViewHolder>() {
 
-    private lateinit var binding: ItemViewBinding
+    class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val nameView: TextView
+        val countView: TextView
 
+        init {
+            nameView = itemView.findViewById(R.id.nameoutput)
+            countView = itemView.findViewById(R.id.countoutput)
+        }
+    }
 
-    class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-    private val nameoutput1 = binding.nameoutput
-    private val checked1 = binding.checked
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
-        return TodoViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
+        return RecordViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_view,
                 parent,
@@ -31,52 +32,13 @@ class TodoAdapter (
         )
     }
 
-    fun addTodo(todo: RecordDetailActivity){
-        todos.add(todo)
-        notifyItemInserted(todos.size - 1)
-    }
-
-    fun deleteDoneTodos(){
-        todos.removeAll{ todo ->
-            todo.isChecked
-        }
-        notifyDataSetChanged()
-    }
-
-    private fun toggleStrikeThrough(nameoutput1 : TextView, checked1 : Boolean){
-
-        if (checked1){
-
-            nameoutput1.paintFlags = nameoutput1.paintFlags or STRIKE_THRU_TEXT_FLAG
-
-        }else{
-
-            nameoutput1.paintFlags = nameoutput1.paintFlags or STRIKE_THRU_TEXT_FLAG.inv()
-
-        }
-    }
-
-    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        val curTodo = todos[position]
-        holder.itemView.apply {
-
-            nameoutput1.text = curTodo.title
-            checked1.isChecked = curTodo.isChecked
-            toggleStrikeThrough(nameoutput1, curTodo.isChecked )
-            checked1.setOnCheckedChangeListener { _, isChecked ->
-
-                toggleStrikeThrough(nameoutput1, isChecked)
-                curTodo.isChecked = !curTodo.isChecked
-
-
-            }
-
-        }
+    override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
+        val record = records[position]
+        holder.nameView.text = record.name
+        holder.countView.text = record.countPerTime.toString()
     }
 
     override fun getItemCount(): Int {
-
-        return todos.size
-
+        return records.size
     }
 }
