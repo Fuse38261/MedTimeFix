@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medtimev2.databinding.ItemViewBinding
 
-class TodoAdapter (
-    private val records: MutableList<Record>
+class TodoAdapter(
+    private val records: MutableList<Record>,
+    recordListActivity: RecordListActivity
 ) : RecyclerView.Adapter<TodoAdapter.RecordViewHolder>() {
 
     class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

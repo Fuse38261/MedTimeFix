@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
 
     <EditText
-        android:id="@+id/inputtime"
+        android:id="@+id/inputmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -99,7 +99,7 @@
         android:layout_marginTop="56dp"
         android:text="เม็ด"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/inputtime"
+        app:layout_constraintStart_toEndOf="@+id/inputmed"
         app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
 
     <TextView
@@ -114,14 +114,14 @@
         app:layout_constraintTop_toBottomOf="@+id/medtime" />
 
     <EditText
-        android:id="@+id/inputpro"
+        android:id="@+id/inputtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:hint="จำนวน"
         android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/medday"
-        app:layout_constraintTop_toBottomOf="@+id/inputtime" />
+        app:layout_constraintTop_toBottomOf="@+id/inputmed" />
 
     <TextView
         android:id="@+id/textmed2"
@@ -131,11 +131,11 @@
         android:layout_marginTop="72dp"
         android:text="ครั้ง"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/inputpro"
+        app:layout_constraintStart_toEndOf="@+id/inputtime"
         app:layout_constraintTop_toBottomOf="@+id/textmed" />
 
     <Button
-        android:id="@+id/Nexttoclock"
+        android:id="@+id/Nexttoqr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -143,18 +143,5 @@
         android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/qrimage"
-        android:layout_width="183dp"
-        android:layout_height="185dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

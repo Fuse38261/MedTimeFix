@@ -11,7 +11,6 @@ import com.example.medtimev2.databinding.ItemViewBinding
 
 class payer : AppCompatActivity() {
 
-    private lateinit var nexttoclock : Button
     private lateinit var binding: payer
 
 
@@ -19,18 +18,16 @@ class payer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payer)
 
-        nexttoclock = findViewById(R.id.Nexttoclock)
-
         val actionBar = supportActionBar
 
         actionBar!!.title = "ผู้สร้างฉลาก"
 
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        val qrcode = nexttoclock
+        val qrcode = findViewById<Button>(R.id.Nexttoqr)
         qrcode.setOnClickListener {
-            val Intent = Intent(this,Qrcode::class.java)
-            startActivity(Intent)
+            val intent = Intent(this,RecordListActivity::class.java)
+            startActivity(intent)
         }
     }
 }
