@@ -22,7 +22,10 @@
         <activity
             android:name=".BigView"
             android:exported="false" />
-
+        <activity
+            android:name=".Qrcode"
+            android:exported="false"
+            android:parentActivityName=".payer" />
         <activity
             android:name=".RecordListActivity"
             android:exported="false"
