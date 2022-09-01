@@ -1,5 +1,6 @@
 package com.example.medtimev2
 
+import android.content.Intent
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import com.example.medtimev2.databinding.ItemViewBinding
 
 class TodoAdapter(
     private val records: MutableList<Record>,
-    recordListActivity: RecordListActivity
+    private val onClickListItemListener: (Int) -> Unit
 ) : RecyclerView.Adapter<TodoAdapter.RecordViewHolder>() {
 
     class RecordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,6 +38,7 @@ class TodoAdapter(
         val record = records[position]
         holder.nameView.text = record.name
         holder.countView.text = record.countPerTime.toString()
+        holder.itemView.setOnClickListener { this.onClickListItemListener(position) }
     }
 
     override fun getItemCount(): Int {

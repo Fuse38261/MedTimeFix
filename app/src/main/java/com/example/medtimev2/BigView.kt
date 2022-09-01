@@ -9,29 +9,25 @@ class BigView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_big_view)
 
-        /*val name: TextView = findViewById(R.id.viewname)
+        val intent = getIntent()
+        val recordIndex = intent.getIntExtra(BigView.RECORD_INDEX_INTENT_NAME, -1)
+
+        val record = RecordService.default.records[recordIndex]
+
+        val name: TextView = findViewById(R.id.viewname)
         val time: TextView = findViewById(R.id.viewtime)
         val med: TextView = findViewById(R.id.viewmed)
         val warn: TextView = findViewById(R.id.viewwarning)
         val prop: TextView = findViewById(R.id.viewprop)
 
-        val bundle : Bundle?= intent.extras
-        val heading = bundle!!.getString("heading")
-        val property = bundle.getString("property")
-        val waring = bundle.getString("warning")
-        val listtime = bundle!!.getString("amount of time to eat")
-        val listmed = bundle!!.getString("amount of medicine to eat")
+        name.text = record.name
+        prop.text = record.property
+        warn.text  = record.warning
+        med.text = record.timePerDay.toString()
+        time.text = record.countPerTime.toString()
+    }
 
-        name.text = heading
-        time.text = listtime
-        med.text = listmed
-        warn.text = waring
-        prop.text = property*/
-
-
-
-
-
-
+    companion object {
+        const val RECORD_INDEX_INTENT_NAME = "RECORD_INDEX"
     }
 }

@@ -3,7 +3,6 @@ package com.example.medtimev2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,7 +22,11 @@ class RecordListActivity() : AppCompatActivity(){
         val listtime: String = findViewById<EditText>(R.id.inputtime).toString()*/
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = TodoAdapter(records, this)
+        recyclerView.adapter = TodoAdapter(records) {
+            val intent = Intent(this, BigView::class.java)
+            intent.putExtra(BigView.RECORD_INDEX_INTENT_NAME, it)
+            startActivity(intent)
+        }
 
         /*val intent = Intent(this@RecordListActivity,BigView::class.java)
         intent.putExtra("heading",listname)
