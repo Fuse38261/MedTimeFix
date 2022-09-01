@@ -49,9 +49,10 @@ class MainActivity : AppCompatActivity() {
         record.direction = Direction.BEFORE_BED
 
         val simpleDateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss",Locale.getDefault())
-        val beforeBed = Instant.parse("2022-02-01T14:23:05+07:00")
+        val directionDate = DirectionDate()
+        directionDate.beforeBed = Instant.parse("2022-02-01T14:23:05+07:00")
 
-        record.directionDate = DirectionDate(null, null, null, beforeBed)
+        record.directionDate = directionDate
 
         try {
             val json = Json.encodeToString(record)
