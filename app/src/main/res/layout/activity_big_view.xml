@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    tools:context=".BigView">
+    tools:context=".BigView"
+    tools:layout_editor_absoluteX="17dp"
+    tools:layout_editor_absoluteY="-11dp">
 
     <TextView
         android:id="@+id/viewname"
-        android:textColor="@color/black"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/viewtimetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="4dp"
         android:text="ครั้งละ"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -31,47 +34,8 @@
         app:layout_constraintTop_toBottomOf="@+id/viewname"
         app:layout_constraintVertical_bias="0.046" />
 
-
     <TextView
         android:id="@+id/viewtime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:text="จำนวน"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewname"
-        app:layout_constraintVertical_bias="0.046" />
-
-    <TextView
-        android:id="@+id/med"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:text="เม็ด"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewname"
-        app:layout_constraintVertical_bias="0.046" />
-
-    <TextView
-        android:id="@+id/eat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="กิน"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewtimetext"
-        app:layout_constraintVertical_bias="0.068" />
-
-    <TextView
-        android:id="@+id/viewmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -80,21 +44,80 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewname"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.046" />
+
+
+    <TextView
+        android:id="@+id/med"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:text="เม็ด"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewname"
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/perday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
+        android:layout_marginStart="116dp"
         android:text="ต่อวัน"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewname"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.147" />
 
+
+    <TextView
+        android:id="@+id/timetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="เลือกเวลา"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <Button
+        android:id="@+id/btntime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="88dp"
+        android:text="Time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timetext" />
+
+    <TextView
+        android:id="@+id/eat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="กิน"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewtimetext"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <TextView
+        android:id="@+id/viewmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="จำนวน"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewname"
+        app:layout_constraintVertical_bias="0.147" />
 
     <TextView
         android:id="@+id/warningtext"

@@ -1,13 +1,21 @@
 package com.example.medtimev2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 
 class BigView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_big_view)
+
+        val selecttime = findViewById<Button>(R.id.btntime)
+        selecttime.setOnClickListener {
+            val Intent = Intent(this,clockforbandaf::class.java)
+            startActivity(Intent)
+        }
 
         val intent = getIntent()
         val recordIndex = intent.getIntExtra(BigView.RECORD_INDEX_INTENT_NAME, -1)
@@ -20,11 +28,16 @@ class BigView : AppCompatActivity() {
         val warn: TextView = findViewById(R.id.viewwarning)
         val prop: TextView = findViewById(R.id.viewprop)
 
+
         name.text = record.name
         prop.text = record.property
         warn.text  = record.warning
         med.text = record.timePerDay.toString()
         time.text = record.countPerTime.toString()
+
+
+
+
     }
 
     companion object {

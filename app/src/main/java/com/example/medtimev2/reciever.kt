@@ -167,6 +167,7 @@ class reciever : AppCompatActivity() {
                     barcode.rawValue?.let { barcode ->
                         Log.d(TAG, barcode)
                         val dialog = RecordDialogFragment()
+                        Log.d(reciever.TAG,barcode)
                         dialog.record = Json.decodeFromString<Record>(barcode)
                         dialog.show(supportFragmentManager, "RecordDialogFragment")
                         isDetected = true

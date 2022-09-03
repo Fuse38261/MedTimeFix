@@ -1,7 +1,14 @@
 package com.example.medtimev2
 
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.medtimev2.databinding.ActivityClockforbandafBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -12,35 +19,73 @@ class clockforbandaf : AppCompatActivity() {
     private lateinit var binding: ActivityClockforbandafBinding
     private lateinit var picker: MaterialTimePicker
     private lateinit var calendar: Calendar
+    private lateinit var alarmManager: AlarmManager
+    private lateinit var pendingIntent: PendingIntent
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClockforbandafBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        createNotificationChannel()
 
         val actionBar = supportActionBar
-
         actionBar!!.title = "ผู้จ่ายยา"
-
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         binding.selectTimeBtn1.setOnClickListener {
-
             showTimePicker()
-
         }
 
         binding.selectTimeBtn2.setOnClickListener {
-
             showTimePicker()
-
         }
 
         binding.selectTimeBtn3.setOnClickListener {
-
             showTimePicker()
+        }
+
+        binding.finishBtn.setOnClickListener{
+            setAlarm()
+        }
+    }
+
+    private fun setAlarm() {
+
+
+        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this,AlarmReceiver::class.java)
+
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,0)
+
+        alarmManager.setRepeating(
+
+            AlarmManager.RTC_WAKEUP,calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY,pendingIntent
+
+        )
+
+        Toast.makeText(this,"ได้ตั้งนาฬิกาปลุกแล้ว",Toast.LENGTH_SHORT).show()
+
+    }
+
+    private fun createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+            val name : CharSequence = "medtimeReminderChannel"
+            val description = "Channel for Alarm Manager"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel("medtime",name, importance)
+            channel.description = description
+            val notificationManager = getSystemService(
+                NotificationManager::class.java
+            )
 
         }
+
+
+
     }
 
     private fun showTimePicker() {

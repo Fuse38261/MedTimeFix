@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,10 +20,13 @@
 
     <EditText
         android:id="@+id/inputname"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="ชื่อยา"
         android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medname" />
 
@@ -30,8 +34,8 @@
         android:id="@+id/medprop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="72dp"
         android:text="สรรพคุณของยา"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,100 +43,108 @@
 
     <EditText
         android:id="@+id/inputprop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:hint="สรรพคุณ"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/medwarn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medprop" />
+
+
+    <EditText
+        android:id="@+id/inputtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:hint="จำนวน"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/Nexttoqr"
+        app:layout_constraintStart_toEndOf="@+id/medday"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
 
     <TextView
         android:id="@+id/medwarn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="348dp"
         android:text="คำเตือน"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputprop" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputwarn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:hint="คำเตือน"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputmed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medwarn" />
+        app:layout_constraintTop_toBottomOf="@+id/medwarn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/medtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="508dp"
         android:text="ครั้งละ"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="492dp"
         android:hint="จำนวน"
         android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/medtime"
-        app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="508dp"
         android:text="เม็ด"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/inputmed"
-        app:layout_constraintTop_toBottomOf="@+id/inputwarn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/medday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="212dp"
         android:text="วันละ"
         android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medtime" />
-
-    <EditText
-        android:id="@+id/inputtime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:hint="จำนวน"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/medday"
-        app:layout_constraintTop_toBottomOf="@+id/inputmed" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735" />
 
     <TextView
         android:id="@+id/textmed2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="72dp"
         android:text="ครั้ง"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/Nexttoqr"
         app:layout_constraintStart_toEndOf="@+id/inputtime"
-        app:layout_constraintTop_toBottomOf="@+id/textmed" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811" />
 
     <Button
         android:id="@+id/Nexttoqr"
@@ -143,5 +155,13 @@
         android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="617dp">
+
+    </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlin.math.log
 
 class Qrcode : AppCompatActivity() {
 
@@ -28,6 +29,7 @@ class Qrcode : AppCompatActivity() {
 
         try {
             val json = Json.encodeToString(record)
+            Log.d(Qrcode.TAG,json)
             val image = getQrCodeBitmap(json)
             qrIV.setImageBitmap(image)
         } catch (err: Error) {
