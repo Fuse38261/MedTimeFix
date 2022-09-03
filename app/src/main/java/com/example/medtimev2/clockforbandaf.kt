@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.medtimev2.databinding.ActivityClockforbandafBinding
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -33,13 +34,13 @@ class clockforbandaf : AppCompatActivity() {
         actionBar!!.title = "ผู้จ่ายยา"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        binding.selectTimeBtn1.setOnClickListener {
-            showTimePicker()
-        }
-
-        binding.selectTimeBtn2.setOnClickListener {
-            showTimePicker()
-        }
+//        binding.selectTimeBtn1.setOnClickListener {
+//            showTimePicker()
+//        }
+//
+//        binding.selectTimeBtn2.setOnClickListener {
+//            showTimePicker()
+//        }
 
         binding.selectTimeBtn3.setOnClickListener {
             showTimePicker()
@@ -51,22 +52,19 @@ class clockforbandaf : AppCompatActivity() {
     }
 
     private fun setAlarm() {
-
-
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this,AlarmReceiver::class.java)
+        val intent = Intent(this, AlarmReceiver::class.java)
 
-        pendingIntent = PendingIntent.getBroadcast(this,0,intent,0)
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+
+        Log.d("FuseTesting", calendar.timeInMillis.toString())
 
         alarmManager.setRepeating(
-
-            AlarmManager.RTC_WAKEUP,calendar.timeInMillis,
-            AlarmManager.INTERVAL_DAY,pendingIntent
-
+            AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY, pendingIntent
         )
 
         Toast.makeText(this,"ได้ตั้งนาฬิกาปลุกแล้ว",Toast.LENGTH_SHORT).show()
-
     }
 
     private fun createNotificationChannel() {
@@ -81,11 +79,8 @@ class clockforbandaf : AppCompatActivity() {
             val notificationManager = getSystemService(
                 NotificationManager::class.java
             )
-
+            notificationManager.createNotificationChannel(channel)
         }
-
-
-
     }
 
     private fun showTimePicker() {
@@ -101,18 +96,16 @@ class clockforbandaf : AppCompatActivity() {
 
         picker.addOnPositiveButtonClickListener{
 
-            if(picker.hour > 12){
+            if(picker.hour > 12) {
 
                 binding.clockview1.text = String.format("%02d",picker.hour - 12) + " : " + String.format("%02d",picker.minute)+"PM"
 
 
-            }else{
+            } else {
                 String.format("%02d",picker.hour - 12) + " : " + String.format("%02d",picker.minute)+"AM"
-
-
             }
 
-            calendar = Calendar.getInstance()
+            calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Bangkok"))
             calendar[Calendar.HOUR_OF_DAY] = picker.hour
             calendar[Calendar.MINUTE] = picker.minute
             calendar[Calendar.SECOND] = 0
