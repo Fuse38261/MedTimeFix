@@ -7,10 +7,12 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
+import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import kotlin.math.log
+import java.util.*
+
 
 class Qrcode : AppCompatActivity() {
 
@@ -39,7 +41,9 @@ class Qrcode : AppCompatActivity() {
 
     private fun getQrCodeBitmap(json: String): Bitmap {
         val size = 512 //pixels
-        val bits = QRCodeWriter().encode(json, BarcodeFormat.QR_CODE, size, size)
+        val hints = Hashtable<EncodeHintType,String>()
+        hints[EncodeHintType.CHARACTER_SET] = "UTF-8"
+        val bits = QRCodeWriter().encode(json, BarcodeFormat.QR_CODE, size, size,hints)
         return Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).also {
             for (x in 0 until size) {
                 for (y in 0 until size) {
