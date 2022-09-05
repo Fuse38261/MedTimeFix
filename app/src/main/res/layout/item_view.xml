@@ -32,20 +32,6 @@
         app:layout_constraintTop_toBottomOf="@+id/nameoutput"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/timeoutput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="00:00"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/checked"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countoutput"
-        app:layout_constraintVertical_bias="0.0" />
-
     <CheckBox
         android:id="@+id/checked"
         android:layout_width="wrap_content"
