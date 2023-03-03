@@ -9,17 +9,19 @@
     tools:layout_editor_absoluteX="17dp"
     tools:layout_editor_absoluteY="-11dp">
 
+
     <TextView
         android:id="@+id/viewname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="303dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
         android:text="Name"
         android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/viewtimetext"
@@ -51,7 +53,7 @@
         android:id="@+id/med"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="124dp"
         android:text="เม็ด"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -60,35 +62,39 @@
         app:layout_constraintTop_toBottomOf="@+id/viewname"
         app:layout_constraintVertical_bias="0.046" />
 
+
     <TextView
         android:id="@+id/perday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
+        android:layout_marginStart="108dp"
         android:text="ต่อวัน"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewname"
-        app:layout_constraintVertical_bias="0.147" />
-
+        app:layout_constraintVertical_bias="0.145" />
 
     <TextView
         android:id="@+id/timetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
         android:text="เลือกเวลา"
+        android:textColor="@color/black"
         android:textSize="20dp"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toEndOf="@+id/med"
+        app:layout_constraintTop_toBottomOf="@+id/viewname" />
 
     <Button
         android:id="@+id/btntime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="92dp"
         android:text="Time"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,22 +152,21 @@
 
     <TextView
         android:id="@+id/proptext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="4dp"
         android:text="สรรพคุณ"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/warningtext"
-        app:layout_constraintVertical_bias="0.413" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <TextView
         android:id="@+id/viewprop"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="404dp"
+        android:layout_height="264dp"
         android:text="สรรพคุณ"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -169,6 +174,37 @@
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proptext" />
+
+    <ImageButton
+        android:id="@+id/ttsBtn1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/viewname"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tts_speaker" />
+
+    <ImageButton
+        android:id="@+id/ttsBtn2"
+        android:layout_width="34dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="204dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/warningtext"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tts_speaker" />
+
+    <ImageButton
+        android:id="@+id/ttsBtn3"
+        android:layout_width="33dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="420dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/proptext"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tts_speaker" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

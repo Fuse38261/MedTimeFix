@@ -29,6 +29,8 @@ class Qrcode : AppCompatActivity() {
         val intent = intent
         val record = intent.getParcelableExtra<Record>(Qrcode.RECORD_INTENT_NAME)
 
+
+
         try {
             val json = Json.encodeToString(record)
             Log.d(Qrcode.TAG,json)

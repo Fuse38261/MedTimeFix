@@ -110,12 +110,24 @@
 
     <Button
         android:id="@+id/finishBtn"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="668dp"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="636dp"
         android:text="เสร็จสิ้น"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/finishBtn2"
+        android:layout_width="172dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="636dp"
+        android:text="เวลากลางคืน"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toEndOf="@+id/finishBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
 

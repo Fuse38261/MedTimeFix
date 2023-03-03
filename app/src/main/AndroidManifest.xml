@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.medtimev2">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk tools:overrideLibrary="       androidx.camera.camera2, androidx.camera.core,       androidx.camera.view, androidx.camera.lifecycle" />
 
@@ -39,15 +38,11 @@
         <activity
             android:name=".chooseclocknight"
             android:exported="false"
-            android:parentActivityName=".chooseclock" />
+            android:parentActivityName=".clockforbandaf" />
         <activity
             android:name=".clockforbandaf"
             android:exported="false"
-            android:parentActivityName=".chooseclock" />
-        <activity
-            android:name=".chooseclock"
-            android:exported="false"
-            android:parentActivityName=".payer" />
+            android:parentActivityName=".RecordListActivity" />
         <activity
             android:name=".payer"
             android:exported="false"

@@ -1,22 +1,25 @@
 package com.example.medtimev2
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
 class BigView : AppCompatActivity() {
+
+    lateinit var tts: TextToSpeech
+
+    @SuppressLint("CutPasteId", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_big_view)
-
-        val selecttime = findViewById<Button>(R.id.btntime)
-        selecttime.setOnClickListener {
-            val Intent = Intent(this,clockforbandaf::class.java)
-            startActivity(Intent)
-        }
-
+        // Import information from record
         val intent = getIntent()
         val recordIndex = intent.getIntExtra(BigView.RECORD_INDEX_INTENT_NAME, -1)
 
@@ -28,15 +31,54 @@ class BigView : AppCompatActivity() {
         val warn: TextView = findViewById(R.id.viewwarning)
         val prop: TextView = findViewById(R.id.viewprop)
 
-
         name.text = record.name
         prop.text = record.property
         warn.text  = record.warning
         med.text = record.timePerDay.toString()
         time.text = record.countPerTime.toString()
 
+        // Btn for select time
+        val selecttime = findViewById<Button>(R.id.btntime)
+        selecttime.setOnClickListener {
+            val Intent = Intent(this,clockforbandaf::class.java)
+            startActivity(Intent)
+        }
 
+            // Text-To-Speech
+        val bl1 = findViewById<ImageButton>(R.id.ttsBtn1)
+        val bl2 = findViewById<ImageButton>(R.id.ttsBtn2)
+        val bl3 = findViewById<ImageButton>(R.id.ttsBtn3)
 
+        // Set Btn to react when clicked
+        bl1.setOnClickListener{
+            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
+                if(it==TextToSpeech.SUCCESS) {
+                    tts.language = Locale.US
+                    tts.setSpeechRate(1.0f)
+                    tts.speak(name.text.toString(), TextToSpeech.QUEUE_ADD, null)
+                }
+            })
+        }
+
+        bl2.setOnClickListener{
+            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
+                if(it==TextToSpeech.SUCCESS) {
+                    tts.language = Locale.US
+                    tts.setSpeechRate(1.0f)
+                    tts.speak(warn.text.toString(), TextToSpeech.QUEUE_ADD, null)
+                }
+            })
+        }
+
+        bl3.setOnClickListener{
+            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
+                if(it==TextToSpeech.SUCCESS) {
+                    tts.language = Locale.US
+                    tts.setSpeechRate(1.0f)
+                    tts.speak(prop.text.toString(), TextToSpeech.QUEUE_ADD, null)
+                }
+            })
+        }
 
     }
 
