@@ -1,9 +1,8 @@
 package com.example.medtimev2
-
 import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.*
 
 @Serializable
 class Record() : Parcelable {
@@ -12,6 +11,7 @@ class Record() : Parcelable {
     var warning: String = ""
     var countPerTime: Double = 0.0
     var timePerDay: Int = 0
+    var timeMeal : String = ""
     var direction: Direction = Direction.UNDEFINED
     var directionDate: DirectionDate? = null
 
@@ -21,8 +21,9 @@ class Record() : Parcelable {
         warning = parcel.readString().toString()
         countPerTime = parcel.readDouble()
         timePerDay = parcel.readInt()
-        direction = Direction.valueOf(parcel.readString().toString())
-        directionDate = parcel.readParcelable(DirectionDate.javaClass.classLoader)
+        timeMeal = parcel.readString().toString()
+        //direction = Direction.valueOf(parcel.readString().toString())
+        //directionDate = parcel.readParcelable(DirectionDate.javaClass.classLoader)
     }
 
     fun getAlerts(): List<Instant> {
@@ -43,6 +44,7 @@ class Record() : Parcelable {
         parcel.writeString(warning)
         parcel.writeDouble(countPerTime)
         parcel.writeInt(timePerDay)
+        parcel.writeString(timeMeal)
         parcel.writeString(direction.name)
         parcel.writeParcelable(directionDate, 0)
     }

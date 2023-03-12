@@ -7,10 +7,10 @@ import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -22,10 +22,10 @@ import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.khaled.mlbarcodescanner.CameraXViewModel
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import java.lang.Math.*
 import java.util.concurrent.Executors
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.decodeFromString
 
 class reciever : AppCompatActivity() {
 
@@ -49,7 +49,6 @@ class reciever : AppCompatActivity() {
         setContentView(R.layout.activity_reciever)
 
         val actionBar = supportActionBar
-
         actionBar!!.title = "ผู้รับยา"
         setupCamera()
     }

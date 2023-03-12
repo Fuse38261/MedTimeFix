@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medtimev2.databinding.ActivityClockforbandafBinding
@@ -29,6 +30,16 @@ class clockforbandaf : AppCompatActivity() {
         binding = ActivityClockforbandafBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createNotificationChannel()
+
+        val firstActButton = findViewById<Button>(R.id.nightBtn)
+        firstActButton.setOnClickListener {
+            val intent1 = Intent(this, chooseclocknight::class.java)
+            startActivity(intent1)
+        }
+
+
+
+
 
         val actionBar = supportActionBar
         actionBar!!.title = "ผู้จ่ายยา"

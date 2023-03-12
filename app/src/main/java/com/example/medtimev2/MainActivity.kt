@@ -1,22 +1,15 @@
 package com.example.medtimev2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import kotlinx.datetime.Instant
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
-import java.text.DateFormat
+import kotlinx.serialization.json.Json
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 import java.util.*
-import java.util.Date.parse
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,13 +17,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val firstActButton = findViewById<Button>(R.id.btnrecieve)
+
+
+
+        val firstActButton = findViewById<CardView>(R.id.card_receiver)
         firstActButton.setOnClickListener {
             val intent1 = Intent(this, reciever::class.java)
             startActivity(intent1)
         }
 
-        val secondActButton = findViewById<Button>(R.id.btnpay)
+        val secondActButton = findViewById<CardView>(R.id.card_payer)
         secondActButton.setOnClickListener {
             val intent1 = Intent(this, payer::class.java)
             startActivity(intent1)

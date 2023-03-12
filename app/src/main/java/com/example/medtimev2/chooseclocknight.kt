@@ -1,14 +1,13 @@
 package com.example.medtimev2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.medtimev2.databinding.ActivityChooseclocknightBinding
-import com.example.medtimev2.databinding.ActivityClockforbandafBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.*
 
-class chooseclocknight : AppCompatActivity() {
+class                                                                                                                                                                                                                                                                                                                                                                   chooseclocknight : AppCompatActivity() {
 
     private lateinit var binding: ActivityChooseclocknightBinding
     private lateinit var picker: MaterialTimePicker

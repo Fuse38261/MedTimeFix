@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.util.*
@@ -34,8 +35,8 @@ class Qrcode : AppCompatActivity() {
         try {
             val json = Json.encodeToString(record)
             Log.d(Qrcode.TAG,json)
-            val image = getQrCodeBitmap(json)
-            qrIV.setImageBitmap(image)
+            val qr_text = getQrCodeBitmap(json)
+            qrIV.setImageBitmap(qr_text)
         } catch (err: Error) {
             Log.e(Qrcode.TAG, err.message!!)
         }
@@ -43,8 +44,9 @@ class Qrcode : AppCompatActivity() {
 
     private fun getQrCodeBitmap(json: String): Bitmap {
         val size = 512 //pixels
-        val hints = Hashtable<EncodeHintType,String>()
-        hints[EncodeHintType.CHARACTER_SET] = "UTF-8"
+        val hints = Hashtable<EncodeHintType,Any>()
+        hints[EncodeHintType.CHARACTER_SET] = "UTF-8" // Set the set of the character that get from encoding to UTF-8
+        hints[EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.L // Specifies the level of error correction
         val bits = QRCodeWriter().encode(json, BarcodeFormat.QR_CODE, size, size,hints)
         return Bitmap.createBitmap(size, size, Bitmap.Config.RGB_565).also {
             for (x in 0 until size) {

@@ -30,12 +30,14 @@ class BigView : AppCompatActivity() {
         val med: TextView = findViewById(R.id.viewmed)
         val warn: TextView = findViewById(R.id.viewwarning)
         val prop: TextView = findViewById(R.id.viewprop)
+        val meal: TextView = findViewById(R.id.viewMeal)
 
         name.text = record.name
         prop.text = record.property
         warn.text  = record.warning
         med.text = record.timePerDay.toString()
         time.text = record.countPerTime.toString()
+        meal.text = record.timeMeal
 
         // Btn for select time
         val selecttime = findViewById<Button>(R.id.btntime)
@@ -44,10 +46,8 @@ class BigView : AppCompatActivity() {
             startActivity(Intent)
         }
 
-            // Text-To-Speech
+        // Text-To-Speech
         val bl1 = findViewById<ImageButton>(R.id.ttsBtn1)
-        val bl2 = findViewById<ImageButton>(R.id.ttsBtn2)
-        val bl3 = findViewById<ImageButton>(R.id.ttsBtn3)
 
         // Set Btn to react when clicked
         bl1.setOnClickListener{
@@ -59,27 +59,6 @@ class BigView : AppCompatActivity() {
                 }
             })
         }
-
-        bl2.setOnClickListener{
-            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
-                if(it==TextToSpeech.SUCCESS) {
-                    tts.language = Locale.US
-                    tts.setSpeechRate(1.0f)
-                    tts.speak(warn.text.toString(), TextToSpeech.QUEUE_ADD, null)
-                }
-            })
-        }
-
-        bl3.setOnClickListener{
-            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
-                if(it==TextToSpeech.SUCCESS) {
-                    tts.language = Locale.US
-                    tts.setSpeechRate(1.0f)
-                    tts.speak(prop.text.toString(), TextToSpeech.QUEUE_ADD, null)
-                }
-            })
-        }
-
     }
 
     companion object {

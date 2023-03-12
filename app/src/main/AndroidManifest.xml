@@ -7,8 +7,11 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,11 +32,14 @@
         <activity
             android:name=".RecordListActivity"
             android:exported="false"
-            android:parentActivityName=".payer"/>
+            android:parentActivityName=".payer" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".chooseclocknight"
@@ -53,7 +59,14 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".SplashScreenActivity"/>
+
+        <activity
+                android:name=".SplashScreenActivity"
+                android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,8 +74,9 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiver" android:process=":remote" />
-
+        <receiver
+            android:name=".AlarmReceiver"
+            android:process=":remote" />
     </application>
 
 </manifest>

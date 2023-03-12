@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_clock"
     tools:context=".chooseclocknight">
 
     <TextView
@@ -12,29 +13,33 @@
         android:layout_height="wrap_content"
         android:text="0.00 PM"
         android:textSize="70dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.488" />
 
     <TextView
         android:id="@+id/textnight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="กลางคืน"
-        android:textSize="50dp"
+        android:text="ก่อนนอน"
+        android:textColor="#A8FFFFFF"
+        android:textSize="80dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.252" />
 
     <Button
         android:id="@+id/selectTimeNight"
         android:layout_width="215dp"
         android:layout_height="63dp"
         android:layout_marginTop="112dp"
+        android:backgroundTint="#63DD7AF3"
         android:text="เลือกเวลา"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,4 +47,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textnight"
         app:layout_constraintVertical_bias="0.506" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="145dp"
+        android:layout_height="125dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_nights_stay_24"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
