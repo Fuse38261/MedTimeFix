@@ -1,158 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    tools:context=".clockforbandaf"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_clockday"
-    tools:context=".clockforbandaf">
+    android:layout_width="match_parent"
+    android:fillViewport="true">
 
-    <Button
-        android:id="@+id/nightBtn"
-        android:layout_width="172dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="648dp"
-        android:backgroundTint="#4BDD7AF3"
-        android:text="เวลากลางคืน"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/finishBtn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/finishBtn"
-        android:layout_width="172dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="648dp"
-        android:backgroundTint="#63DD7AF3"
-        android:text="เสร็จสิ้น"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textmorning"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="160dp"
-        android:text="เช้า"
-        android:textColor="#A8FFFFFF"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/clockview1"
-        app:layout_constraintHorizontal_bias="0.186"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/teal_700"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
-        android:text="กลางวัน"
-        android:textColor="#A8FFFFFF"
-        android:textSize="50dp"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/textmorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="เวลาแจ้งเตือน"
+            android:padding="15dp"
+            android:textColor="#C4FFFFFF"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            />
 
-        app:layout_constraintEnd_toStartOf="@+id/clockview2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textmorning" />
 
-    <TextView
-        android:id="@+id/clockview2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:text="0:00 AM"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectTimeBtn1" />
+        <RelativeLayout
+            android:id="@+id/rl_Day"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-    <TextView
-        android:id="@+id/clockview1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="28dp"
-        android:text="0:00 AM"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_clockday">
 
-    <Button
-        android:id="@+id/selectTimeBtn1"
-        android:layout_width="121dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="44dp"
-        android:backgroundTint="#63DD7AF3"
-        android:text="เลือกเวลา"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clockview1" />
+                <TextView
+                    android:id="@+id/textday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="-3dp"
+                    android:padding="20dp"
+                    android:text="เช้า"
+                    android:textColor="#A8FFFFFF"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/selectTimeBtn2"
-        android:layout_width="121dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
-        android:backgroundTint="#63DD7AF3"
-        android:text="เลือกเวลา"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clockview2" />
+                <Button
+                    android:id="@+id/selectTimeBtn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="229dp"
+                    android:layout_marginBottom="7dp"
+                    android:backgroundTint="#0000"
+                    android:padding="15dp"
+                    android:text="เลือกเวลา"
+                    android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/textevening"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="104dp"
-        android:text="เย็น"
-        android:textColor="#A8FFFFFF"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/clockview3"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textday" />
+                <TextView
+                    android:id="@+id/clockview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="26dp"
+                    android:text="00:00"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/clockview3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:text="0:00 AM"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectTimeBtn2" />
 
-    <Button
-        android:id="@+id/selectTimeBtn3"
-        android:layout_width="121dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="48dp"
-        android:backgroundTint="#63DD7AF3"
-        android:text="เลือกเวลา"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clockview3" />
+            </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="111dp"
-        android:layout_height="112dp"
-        app:srcCompat="@drawable/baseline_light_mode_24"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/baseline_wb_twilight_24" />
+        </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_Noon"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_clocknoon">
+
+                <TextView
+                    android:id="@+id/textday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="-3dp"
+                    android:padding="15dp"
+                    android:text="กลางวัน"
+                    android:textColor="#A8FFFFFF"
+                    android:textSize="55dp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/selectTimeBtn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="229dp"
+                    android:layout_marginBottom="7dp"
+                    android:backgroundTint="#0000"
+                    android:padding="15dp"
+                    android:text="เลือกเวลา"
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/clockview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginBottom="26dp"
+                    android:text="00:00"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/baseline_light_mode_24" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_Evening"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_clockevening">
+
+                <TextView
+                    android:id="@+id/textevening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="-3dp"
+                    android:padding="20dp"
+                    android:text="เย็น"
+                    android:textColor="#A8FFFFFF"
+                    android:textSize="55dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/selectTimeBtn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="229dp"
+                    android:layout_marginBottom="7dp"
+                    android:backgroundTint="#0000"
+                    android:padding="15dp"
+                    android:text="เลือกเวลา"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/clockview3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginBottom="26dp"
+                    android:text="00:00"
+                    android:textSize="60dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/baseline_wb_cloudy_24" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_Night"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_clocknight">
+
+                <TextView
+                    android:id="@+id/textNight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="-3dp"
+                    android:padding="15dp"
+                    android:text="ก่อนนอน"
+                    android:textColor="#A8FFFFFF"
+                    android:textSize="55dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/selectTimeBtn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="229dp"
+                    android:layout_marginBottom="7dp"
+                    android:backgroundTint="#0000"
+                    android:padding="15dp"
+                    android:text="เลือกเวลา"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/clockviewnight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="11dp"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginBottom="26dp"
+                    android:text="00:00"
+                    android:textSize="55dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/baseline_nights_stay_24" />
+        </RelativeLayout>
+
+
+
+        <Button
+            android:id="@+id/finishBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:padding="15dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="#63DD7AF3"
+            android:text="เสร็จสิ้น"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+</ScrollView>

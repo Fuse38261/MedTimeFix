@@ -42,6 +42,7 @@ class Qrcode : AppCompatActivity() {
         }
     }
 
+    //Generated the Qr-Code
     private fun getQrCodeBitmap(json: String): Bitmap {
         val size = 512 //pixels
         val hints = Hashtable<EncodeHintType,Any>()

@@ -22,6 +22,7 @@ class payer : AppCompatActivity() {
     private lateinit var afterMealCheckBox: CheckBox
     private lateinit var beforeSleepCheckBox: CheckBox
     private lateinit var medImage: ImageView
+
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
     }
@@ -30,7 +31,7 @@ class payer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payer)
 
-       val actionBar = supportActionBar
+        val actionBar = supportActionBar
         actionBar!!.title = "ผู้สร้างฉลาก"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
@@ -47,6 +48,18 @@ class payer : AppCompatActivity() {
 
         medImage = findViewById(R.id.medImageView)
 
+        // Set up click listener for button to select image
+        findViewById<Button>(R.id.selectImageBtn).setOnClickListener {
+            Log.d("MyActivity", "Select image button has been clicked.")
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(
+                Intent.createChooser(intent, "Select Picture"),
+                PICK_IMAGE_REQUEST
+            )
+        }
+
         val qrcode = findViewById<Button>(R.id.Nexttoqr)
         qrcode.setOnClickListener {
             val record = Record()
@@ -55,31 +68,31 @@ class payer : AppCompatActivity() {
             record.warning = warningText.text.toString()
             record.countPerTime = countPerTimeText.text.toString().toDouble()
             record.timePerDay = timePerDayText.text.toString().toInt()
-            if (beforeMealCheckBox.isChecked){
+            if (beforeMealCheckBox.isChecked) {
 
                 record.timeMeal = "ก่อนอาหาร"
 
-            }else if(afterMealCheckBox.isChecked){
+            } else if (afterMealCheckBox.isChecked) {
 
                 record.timeMeal = "หลังอาหาร"
 
-            }else{
+
+            } else if (beforeMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
+
+                record.timeMeal = "ก่อนอาหารและก่อนนอน"
+
+            } else if (afterMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
+
+                record.timeMeal = "หลังอาหารและก่อนนอน"
+
+            } else {
 
                 record.timeMeal = "ก่อนนอน"
 
+
+
             }
-
-            // Set up click listener for button to select image
-            findViewById<Button>(R.id.selectImageBtn).setOnClickListener{
-                Log.d("MyActivity","Select image button has been clicked.")
-                val intent = Intent()
-                intent.type = "image/*"
-                intent.action = Intent.ACTION_GET_CONTENT
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"),PICK_IMAGE_REQUEST)
-            }
-
-
-            val intent = Intent(this,Qrcode::class.java)
+            val intent = Intent(this, Qrcode::class.java)
             intent.putExtra(Qrcode.RECORD_INTENT_NAME, record)
             startActivity(intent)
         }

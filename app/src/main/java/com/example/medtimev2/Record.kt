@@ -22,6 +22,7 @@ class Record() : Parcelable {
         countPerTime = parcel.readDouble()
         timePerDay = parcel.readInt()
         timeMeal = parcel.readString().toString()
+
         //direction = Direction.valueOf(parcel.readString().toString())
         //directionDate = parcel.readParcelable(DirectionDate.javaClass.classLoader)
     }

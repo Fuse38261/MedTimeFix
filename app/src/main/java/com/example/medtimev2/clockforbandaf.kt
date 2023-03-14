@@ -8,7 +8,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medtimev2.databinding.ActivityClockforbandafBinding
@@ -31,16 +30,6 @@ class clockforbandaf : AppCompatActivity() {
         setContentView(binding.root)
         createNotificationChannel()
 
-        val firstActButton = findViewById<Button>(R.id.nightBtn)
-        firstActButton.setOnClickListener {
-            val intent1 = Intent(this, chooseclocknight::class.java)
-            startActivity(intent1)
-        }
-
-
-
-
-
         val actionBar = supportActionBar
         actionBar!!.title = "ผู้จ่ายยา"
         actionBar.setDisplayHomeAsUpEnabled(true)
@@ -57,6 +46,9 @@ class clockforbandaf : AppCompatActivity() {
             showTimePicker3()
         }
 
+        binding.selectTimeBtn4.setOnClickListener {
+            showTimePicker4()
+        }
         binding.finishBtn.setOnClickListener{
             setAlarm()
         }
@@ -195,7 +187,38 @@ class clockforbandaf : AppCompatActivity() {
             calendar[Calendar.MILLISECOND] = 0
 
         }
+    }
+    private fun showTimePicker4() {
 
+        picker = MaterialTimePicker.Builder()
+            .setTimeFormat(TimeFormat.CLOCK_12H)
+            .setHour(12)
+            .setMinute(0)
+            .setTitleText("Select Alarm Time")
+            .build()
+
+        picker.show(supportFragmentManager,"Med")
+
+        picker.addOnPositiveButtonClickListener{
+
+            if(picker.hour > 12){
+
+                binding.clockviewnight.text = String.format("%02d",picker.hour - 12) + " : " + String.format("%02d",picker.minute)+"PM"
+
+
+            }else{
+                String.format("%02d",picker.hour - 12) + " : " + String.format("%02d",picker.minute)+"AM"
+
+
+            }
+
+            calendar = Calendar.getInstance()
+            calendar[Calendar.HOUR_OF_DAY] = picker.hour
+            calendar[Calendar.MINUTE] = picker.minute
+            calendar[Calendar.SECOND] = 0
+            calendar[Calendar.MILLISECOND] = 0
+
+        }
 
     }
 }

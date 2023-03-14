@@ -26,12 +26,12 @@ class                                                                           
 
         binding.selectTimeNight.setOnClickListener {
 
-            showTimePicker()
+            showTimePicker4()
 
         }
     }
 
-    private fun showTimePicker() {
+    private fun showTimePicker4() {
 
         picker = MaterialTimePicker.Builder()
             .setTimeFormat(TimeFormat.CLOCK_12H)
