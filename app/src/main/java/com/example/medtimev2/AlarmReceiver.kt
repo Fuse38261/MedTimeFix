@@ -18,7 +18,7 @@ class AlarmReceiver : BroadcastReceiver()  {
         val pendingIntent = PendingIntent.getActivity(context,0,i, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(context!!,"medtime")
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setSmallIcon(R.drawable.med_logo)
             .setContentTitle("Medtime")
             .setContentText("อย่าลืมรับประทานยา")
             .setAutoCancel(true)

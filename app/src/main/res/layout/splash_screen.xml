@@ -37,6 +37,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.085" />
 
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="396dp"
+        android:layout_height="375dp"
+        android:src="@drawable/med_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

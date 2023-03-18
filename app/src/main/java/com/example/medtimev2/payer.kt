@@ -2,13 +2,8 @@ package com.example.medtimev2
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 
 class payer : AppCompatActivity() {
 
@@ -23,16 +18,14 @@ class payer : AppCompatActivity() {
     private lateinit var beforeSleepCheckBox: CheckBox
     private lateinit var medImage: ImageView
 
-    companion object {
-        private const val PICK_IMAGE_REQUEST = 1
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payer)
 
         val actionBar = supportActionBar
-        actionBar!!.title = "ผู้สร้างฉลาก"
+        actionBar!!.title = "ผู้กรอกข้อมูลยา"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
 
@@ -46,65 +39,53 @@ class payer : AppCompatActivity() {
         afterMealCheckBox = findViewById(R.id.checkBox2)
         beforeSleepCheckBox = findViewById(R.id.checkBox3)
 
-        medImage = findViewById(R.id.medImageView)
-
-        // Set up click listener for button to select image
-        findViewById<Button>(R.id.selectImageBtn).setOnClickListener {
-            Log.d("MyActivity", "Select image button has been clicked.")
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(
-                Intent.createChooser(intent, "Select Picture"),
-                PICK_IMAGE_REQUEST
-            )
-        }
 
         val qrcode = findViewById<Button>(R.id.Nexttoqr)
         qrcode.setOnClickListener {
-            val record = Record()
-            record.name = nameText.text.toString()
-            record.property = propertiesText.text.toString()
-            record.warning = warningText.text.toString()
-            record.countPerTime = countPerTimeText.text.toString().toDouble()
-            record.timePerDay = timePerDayText.text.toString().toInt()
-            if (beforeMealCheckBox.isChecked) {
+            if (nameText.text.toString().isEmpty() ||
+                propertiesText.text.toString().isEmpty() ||
+                warningText.text.toString().isEmpty() ||
+                countPerTimeText.text.toString().isEmpty() ||
+                timePerDayText.text.toString().isEmpty()
+            ) {
 
-                record.timeMeal = "ก่อนอาหาร"
-
-            } else if (afterMealCheckBox.isChecked) {
-
-                record.timeMeal = "หลังอาหาร"
-
-
-            } else if (beforeMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
-
-                record.timeMeal = "ก่อนอาหารและก่อนนอน"
-
-            } else if (afterMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
-
-                record.timeMeal = "หลังอาหารและก่อนนอน"
+                Toast.makeText(this, "โปรดใส่ข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show()
 
             } else {
 
-                record.timeMeal = "ก่อนนอน"
+                val record = Record()
+                record.name = nameText.text.toString()
+                record.property = propertiesText.text.toString()
+                record.warning = warningText.text.toString()
+                record.countPerTime = countPerTimeText.text.toString().toDouble()
+                record.timePerDay = timePerDayText.text.toString().toInt()
+                if (beforeMealCheckBox.isChecked) {
+
+                    record.timeMeal = "ก่อนอาหาร"
+
+                } else if (afterMealCheckBox.isChecked) {
+
+                    record.timeMeal = "หลังอาหาร"
 
 
+                } else if (beforeMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
 
+                    record.timeMeal = "ก่อนอาหารและก่อนนอน"
+
+                } else if (afterMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
+
+                    record.timeMeal = "หลังอาหารและก่อนนอน"
+
+                } else {
+
+                    record.timeMeal = "ก่อนนอน"
+
+
+                }
+                val intent = Intent(this, Qrcode::class.java)
+                intent.putExtra(Qrcode.RECORD_INTENT_NAME, record)
+                startActivity(intent)
             }
-            val intent = Intent(this, Qrcode::class.java)
-            intent.putExtra(Qrcode.RECORD_INTENT_NAME, record)
-            startActivity(intent)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-            val uri = data.data
-
-            Glide.with(this).load(uri).into(medImage)
         }
     }
 }

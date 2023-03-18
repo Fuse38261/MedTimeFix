@@ -4,15 +4,19 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import java.util.*
 
 class BigView : AppCompatActivity() {
 
     lateinit var tts: TextToSpeech
+    private lateinit var medImage: ImageView
 
     @SuppressLint("CutPasteId", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +50,20 @@ class BigView : AppCompatActivity() {
             startActivity(Intent)
         }
 
+        medImage = findViewById(R.id.medImageView)
+
+        // Set up click listener for button to select image
+        findViewById<Button>(R.id.selectImageBtn).setOnClickListener {
+            Log.d("MyActivity", "Select image button has been clicked.")
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(
+                Intent.createChooser(intent, "Select Picture"),
+                BigView.PICK_IMAGE_REQUEST
+            )
+        }
+
         // Text-To-Speech
         val bl1 = findViewById<ImageButton>(R.id.ttsBtn1)
 
@@ -63,5 +81,17 @@ class BigView : AppCompatActivity() {
 
     companion object {
         const val RECORD_INDEX_INTENT_NAME = "RECORD_INDEX"
+        private const val PICK_IMAGE_REQUEST = 1
+    }
+
+    // Function for load up the image
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
+            val uri = data.data
+
+            Glide.with(this).load(uri).into(medImage)
+        }
     }
 }

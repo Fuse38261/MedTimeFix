@@ -5,8 +5,8 @@
     <uses-sdk tools:overrideLibrary="       androidx.camera.camera2, androidx.camera.core,       androidx.camera.view, androidx.camera.lifecycle" />
 
     <uses-feature android:name="android.hardware.camera" />
-
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -60,6 +60,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:parentActivityName=".SplashScreenActivity"/>
 
         <activity

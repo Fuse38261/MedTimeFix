@@ -36,6 +36,7 @@ class reciever : AppCompatActivity() {
     private var previewUseCase: Preview? = null
     private var analysisUseCase: ImageAnalysis? = null
     private var isDetected: Boolean = false
+    private var scanChecked: Boolean = false
 
     private val screenAspectRatio: Int
         get() {
@@ -51,6 +52,7 @@ class reciever : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "ผู้รับยา"
         setupCamera()
+
     }
 
     private fun setupCamera() {
@@ -89,7 +91,7 @@ class reciever : AppCompatActivity() {
 
         previewUseCase = Preview.Builder()
             .setTargetAspectRatio(screenAspectRatio)
-            .setTargetRotation(previewView!!.display.rotation)
+            // .setTargetRotation(previewView!!.display.rotation)
             .build()
         previewUseCase!!.setSurfaceProvider(previewView!!.surfaceProvider)
 
@@ -123,7 +125,7 @@ class reciever : AppCompatActivity() {
 
         analysisUseCase = ImageAnalysis.Builder()
             .setTargetAspectRatio(screenAspectRatio)
-            .setTargetRotation(previewView!!.display.rotation)
+            //.setTargetRotation(previewView!!.display.rotation)
             .build()
 
         // Initialize our background executor
@@ -176,9 +178,11 @@ class reciever : AppCompatActivity() {
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             this.baseContext.startActivity(intent)
                             isDetected = false
+                            scanChecked = true
                         }
                         dialog.cancelCallback = {
                             isDetected = false
+                            scanChecked = false
                         }
                     }
                 }

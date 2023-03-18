@@ -1,7 +1,6 @@
 package com.example.medtimev2
 import android.os.Parcel
 import android.os.Parcelable
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,8 +11,11 @@ class Record() : Parcelable {
     var countPerTime: Double = 0.0
     var timePerDay: Int = 0
     var timeMeal : String = ""
-    var direction: Direction = Direction.UNDEFINED
-    var directionDate: DirectionDate? = null
+
+
+
+    /*var direction: Direction = Direction.UNDEFINED
+    var directionDate: DirectionDate? = null*/
 
     constructor(parcel: Parcel) : this() {
         name = parcel.readString().toString()
@@ -27,17 +29,6 @@ class Record() : Parcelable {
         //directionDate = parcel.readParcelable(DirectionDate.javaClass.classLoader)
     }
 
-    fun getAlerts(): List<Instant> {
-        if (this.directionDate == null) {
-            return listOf()
-        }
-
-        return when (this.direction) {
-            Direction.BEFORE_MEAL, Direction.AFTER_MEAL -> listOf(this.directionDate!!.breakfast, this.directionDate!!.lunch, this.directionDate!!.dinner)
-            Direction.BEFORE_BED -> listOf(this.directionDate!!.beforeBed)
-            Direction.UNDEFINED -> listOf()
-        }.filterNotNull()
-    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
@@ -46,8 +37,9 @@ class Record() : Parcelable {
         parcel.writeDouble(countPerTime)
         parcel.writeInt(timePerDay)
         parcel.writeString(timeMeal)
-        parcel.writeString(direction.name)
-        parcel.writeParcelable(directionDate, 0)
+
+        //parcel.writeString(direction.name)
+        //parcel.writeParcelable(directionDate, 0)
     }
 
     override fun describeContents(): Int {
@@ -65,7 +57,7 @@ class Record() : Parcelable {
     }
 }
 
-@Serializable
+/* @Serializable
 enum class Direction {
     BEFORE_MEAL, AFTER_MEAL, BEFORE_BED, UNDEFINED
 }
@@ -106,4 +98,4 @@ class DirectionDate : Parcelable {
             return arrayOfNulls(size)
         }
     }
-}
+} */

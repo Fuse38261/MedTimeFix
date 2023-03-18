@@ -4,10 +4,12 @@ import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medtimev2.databinding.ActivityClockforbandafBinding
@@ -73,6 +75,13 @@ class clockforbandaf : AppCompatActivity() {
             intentArray.add(pendingIntent)
 
             f++
+
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                putLong("alarmTime", calendar.timeInMillis)
+                apply()
+            }
+
         }
 
         Toast.makeText(this,"ได้ตั้งนาฬิกาปลุกแล้ว",Toast.LENGTH_SHORT).show()
@@ -82,10 +91,10 @@ class clockforbandaf : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
-            val name : CharSequence = "medtimeReminderChannel"
+            val name : CharSequence = "medTimeReminderChannel"
             val description = "Channel for Alarm Manager"
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("medtime",name, importance)
+            val channel = NotificationChannel("medTime",name, importance)
             channel.description = description
             val notificationManager = getSystemService(
                 NotificationManager::class.java
@@ -95,9 +104,14 @@ class clockforbandaf : AppCompatActivity() {
     }
 
     private fun showTimePicker() {
+
+        val daySpinner = findViewById<Spinner>(R.id.day_spinner)
+        val selectedDay = daySpinner.selectedItem.toString()
+        val alarmTimeInMillis = calendar.timeInMillis
+
         picker = MaterialTimePicker.Builder()
-            .setTimeFormat(TimeFormat.CLOCK_12H)
-            .setHour(12)
+            .setTimeFormat(TimeFormat.CLOCK_24H)
+            .setHour(0)
             .setMinute(0)
             .setTitleText("Select Alarm Time")
             .build()
@@ -117,6 +131,7 @@ class clockforbandaf : AppCompatActivity() {
             }
 
             calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Bangkok"))
+            calendar.set(Calendar.DAY_OF_WEEK, getDayOfWeek(selectedDay))
             calendar[Calendar.HOUR_OF_DAY] = picker.hour
             calendar[Calendar.MINUTE] = picker.minute
             calendar[Calendar.SECOND] = 0
@@ -127,9 +142,11 @@ class clockforbandaf : AppCompatActivity() {
 
     }
     private fun showTimePicker2() {
+
+
         picker = MaterialTimePicker.Builder()
-            .setTimeFormat(TimeFormat.CLOCK_12H)
-            .setHour(12)
+            .setTimeFormat(TimeFormat.CLOCK_24H)
+            .setHour(0)
             .setMinute(0)
             .setTitleText("Select Alarm Time")
             .build()
@@ -158,10 +175,12 @@ class clockforbandaf : AppCompatActivity() {
 
 
     }
+
+
     private fun showTimePicker3() {
         picker = MaterialTimePicker.Builder()
-            .setTimeFormat(TimeFormat.CLOCK_12H)
-            .setHour(12)
+            .setTimeFormat(TimeFormat.CLOCK_24H)
+            .setHour(0)
             .setMinute(0)
             .setTitleText("Select Alarm Time")
             .build()
@@ -191,7 +210,7 @@ class clockforbandaf : AppCompatActivity() {
     private fun showTimePicker4() {
 
         picker = MaterialTimePicker.Builder()
-            .setTimeFormat(TimeFormat.CLOCK_12H)
+            .setTimeFormat(TimeFormat.CLOCK_24H)
             .setHour(12)
             .setMinute(0)
             .setTitleText("Select Alarm Time")
@@ -220,5 +239,17 @@ class clockforbandaf : AppCompatActivity() {
 
         }
 
+    }
+    private fun getDayOfWeek(day: String): Int {
+        return when (day){
+            "วันอาทิตย์" -> Calendar.SUNDAY
+            "วันจันทร์" -> Calendar.MONDAY
+            "วันอังคาร" -> Calendar.TUESDAY
+            "วันพุธ" -> Calendar.WEDNESDAY
+            "วันพฤหัสบดี" -> Calendar.THURSDAY
+            "วันศุกร์" -> Calendar.FRIDAY
+            "วันเสาร์" -> Calendar.SATURDAY
+            else -> throw IllegalArgumentException("โปรดใส่ข้อมูลเกี่ยวกันวันในสัปดาห์: $day")
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -22,10 +23,12 @@ class SplashScreenActivity : AppCompatActivity() {
         //Animation Variable
         var topAnim: Animation
         var bottomAnim: Animation
-        var logo: TextView
+        var name: TextView
         var slogan: TextView
-        logo = findViewById(R.id.textView)
-        slogan = findViewById(R.id.textView2)
+        var logo : ImageView
+
+
+
 
         
         //Use the animation
@@ -33,11 +36,14 @@ class SplashScreenActivity : AppCompatActivity() {
         bottomAnim = AnimationUtils.loadAnimation(this,R.animator.bottom_animation)
 
         //Hooks
-        logo = findViewById(R.id.textView)
+        name = findViewById(R.id.textView)
         slogan = findViewById(R.id.textView2)
+        logo = findViewById(R.id.imageLogo)
 
-        logo.animation = bottomAnim
+        name.animation = bottomAnim
         slogan.animation = bottomAnim
+        logo.animation = topAnim
+
 
         //The delay to go to next activity
         Handler().postDelayed({
