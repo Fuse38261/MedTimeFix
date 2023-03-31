@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="15dp"
+    android:layout_marginTop="10dp"
     android:background="@drawable/view_bg"
     android:backgroundTintMode="add"
     android:outlineAmbientShadowColor="@color/black"
@@ -13,14 +13,14 @@
 
     <TextView
         android:id="@+id/nameoutput"
-        android:layout_width="145dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="241dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
         android:text="MedName"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/checked"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

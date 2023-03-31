@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 }R.id.menu_itemView -> {
 
                     if (isLoggedIn == true){
-                        val intent4 = Intent(this, TodoAdapter::class.java)
+                        val intent4 = Intent(this, RecordListActivity::class.java)
                         startActivity(intent4)
                     }else{
                         Toast.makeText(this, "โปรดทำการสแกน Qr-Code ก่อนดูรายการยา", Toast.LENGTH_SHORT).show()

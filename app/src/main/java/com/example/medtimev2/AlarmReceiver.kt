@@ -5,19 +5,18 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 class AlarmReceiver : BroadcastReceiver()  {
     override fun onReceive(context: Context?, intent: Intent?) {
-        Log.d("FuseTesting", "Broadcast received")
+        val requestCode = intent?.getIntExtra("requestCode", 0) ?: 0
 
-        val i = Intent(context,MainActivity::class.java)
-        intent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        val pendingIntent = PendingIntent.getActivity(context,0,i, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+        val i = Intent(context, MainActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        val pendingIntent = PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val builder = NotificationCompat.Builder(context!!,"medtime")
+        val builder = NotificationCompat.Builder(context!!, "medtime")
             .setSmallIcon(R.drawable.med_logo)
             .setContentTitle("Medtime")
             .setContentText("อย่าลืมรับประทานยา")
@@ -27,7 +26,6 @@ class AlarmReceiver : BroadcastReceiver()  {
             .setContentIntent(pendingIntent)
 
         val notificationManager = NotificationManagerCompat.from(context)
-        notificationManager.notify(123,builder.build())
-
+        notificationManager.notify(123, builder.build())
     }
 }

@@ -59,22 +59,23 @@ class payer : AppCompatActivity() {
                 record.warning = warningText.text.toString()
                 record.countPerTime = countPerTimeText.text.toString().toDouble()
                 record.timePerDay = timePerDayText.text.toString().toInt()
-                if (beforeMealCheckBox.isChecked) {
 
-                    record.timeMeal = "ก่อนอาหาร"
-
-                } else if (afterMealCheckBox.isChecked) {
-
-                    record.timeMeal = "หลังอาหาร"
-
-
-                } else if (beforeMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
+                if (beforeMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
 
                     record.timeMeal = "ก่อนอาหารและก่อนนอน"
 
-                } else if (afterMealCheckBox.isChecked && beforeSleepCheckBox.isChecked) {
+                } else if (afterMealCheckBox.isChecked &&  beforeSleepCheckBox.isChecked) {
 
                     record.timeMeal = "หลังอาหารและก่อนนอน"
+
+
+                } else if (beforeMealCheckBox.isChecked ) {
+
+                    record.timeMeal = "ก่อนอาหาร"
+
+                } else if (afterMealCheckBox.isChecked ) {
+
+                    record.timeMeal = "หลังอาหาร"
 
                 } else {
 

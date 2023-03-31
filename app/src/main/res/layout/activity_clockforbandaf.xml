@@ -41,7 +41,7 @@
 
 
                 <Spinner
-                    android:id="@+id/day_spinner"
+                    android:id="@+id/day_spinner1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -105,16 +105,27 @@
         <RelativeLayout
             android:id="@+id/rl_Noon"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="230dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_clocknoon">
+
+                <Spinner
+                    android:id="@+id/day_spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="21dp"
+                    android:entries="@array/Days"
+                    android:padding="15dp" />
 
                 <TextView
                     android:id="@+id/textday"
@@ -169,16 +180,27 @@
         <RelativeLayout
             android:id="@+id/rl_Evening"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="230dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="230dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_clockevening">
+
+                <Spinner
+                    android:id="@+id/day_spinner3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="21dp"
+                    android:entries="@array/Days"
+                    android:padding="15dp" />
 
                 <TextView
                     android:id="@+id/textevening"
@@ -212,7 +234,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="50dp"
-                    android:layout_marginEnd="58dp"
+                    android:layout_marginEnd="21dp"
                     android:layout_marginRight="136dp"
                     android:layout_marginBottom="35dp"
                     android:text="00:00"
@@ -232,16 +254,27 @@
         <RelativeLayout
             android:id="@+id/rl_Night"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="230dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="230dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_clocknight">
+
+                <Spinner
+                    android:id="@+id/day_spinner4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="21dp"
+                    android:entries="@array/Days"
+                    android:padding="15dp" />
 
                 <TextView
                     android:id="@+id/textNight"

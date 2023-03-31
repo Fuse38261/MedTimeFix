@@ -10,7 +10,10 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
+import com.google.android.material.navigation.NavigationView
 import java.util.*
 
 class BigView : AppCompatActivity() {
@@ -36,6 +39,9 @@ class BigView : AppCompatActivity() {
         val prop: TextView = findViewById(R.id.viewprop)
         val meal: TextView = findViewById(R.id.viewMeal)
 
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout2)
+        val imageMenu = findViewById<ImageView>(R.id.imageMenu2)
+
         name.text = record.name
         prop.text = record.property
         warn.text  = record.warning
@@ -43,11 +49,44 @@ class BigView : AppCompatActivity() {
         time.text = record.countPerTime.toString()
         meal.text = record.timeMeal
 
+        // Make image to click an open the drawer
+        imageMenu.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        // Set the NavigationView menu to change the activity when clicked
+        val navView = findViewById<NavigationView>(R.id.naivgationView)
+        navView.setNavigationItemSelectedListener{
+            when(it.itemId){
+
+                R.id.menu_main -> {
+
+                    val intent5 = Intent(this, MainActivity::class.java)
+                    startActivity(intent5)
+                    true
+                }R.id.menu_itemView -> {
+
+                    val intent6 = Intent(this, RecordListActivity::class.java)
+                    startActivity(intent6)
+                    true
+            }
+                else -> false
+            }
+
+        }
+
+
         // Btn for select time
         val selecttime = findViewById<Button>(R.id.btntime)
         selecttime.setOnClickListener {
             val Intent = Intent(this,clockforbandaf::class.java)
             startActivity(Intent)
+        }
+
+       val imageBack = findViewById<ImageView>(R.id.imageBack)
+        imageBack.setOnClickListener {
+            val Intent2 = Intent(this,RecordListActivity::class.java)
+            startActivity(Intent2)
         }
 
         medImage = findViewById(R.id.medImageView)
