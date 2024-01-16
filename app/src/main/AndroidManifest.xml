@@ -51,10 +51,14 @@
             android:name=".Qrcode"
             android:exported="false"
             android:parentActivityName=".payer" />
+
+
+
         <activity
             android:name=".payer"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".reciever"
             android:exported="false"
@@ -63,10 +67,15 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:parentActivityName=".sign_up_activity"/>
+
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="false"
             android:parentActivityName=".SplashScreenActivity"/>
 
         <activity
-                android:name=".SplashScreenActivity"
+                android:name=".sign_up_activity"
                 android:exported="true">
 
 

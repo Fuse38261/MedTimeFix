@@ -18,7 +18,15 @@
 
         <item>"เลือกหน้าที่"</item>
         <item>"รายการยาทั้งหมด"</item>
-
     </string-array>
+
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="login_string">"เข้าสู่ระบบ"</string>
+    <string name="sign_up_ek3_string">"ลงชื่อเข้าใช้"</string>
+    <string name="name_string">"ชื่อผู้ใช้"</string>
+    <string name="email_string">"อีเมล"</string>
+    <string name="password_string">"รหัสผ่าน"</string>
+    <string name="show_string">"แสดง"</string>
+    <string name="sign_up_ek4_string">"ลงชื่อเข้าใช้"</string>
 
 </resources>
