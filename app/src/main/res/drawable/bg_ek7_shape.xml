@@ -4,6 +4,6 @@
 	android:shape="rectangle" >
 	<corners android:radius="4dp" />
 	<stroke android:color="#e8e8e8" android:width="1dp" />
-	<solid android:color="@color/bg_ek3_color" />
+	<solid android:color="@color/_bg__sign_up_ek2_color" />
 </shape>
 
