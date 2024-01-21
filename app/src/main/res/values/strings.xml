@@ -20,6 +20,15 @@
         <item>"รายการยาทั้งหมด"</item>
     </string-array>
 
+    <string-array name="Med">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
     <string name="ek_img_content">ExportKit Image</string>
     <string name="login_string">"เข้าสู่ระบบ"</string>
     <string name="sign_up_ek3_string">"ลงชื่อเข้าใช้"</string>

@@ -1,0 +1,560 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		doctor
+	 *	@date 		Sunday 21st of January 2024 07:01:28 AM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/doctor" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+			<RelativeLayout android:id="@+id/page_doctor_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__doctor_ek2"
+					android:background="@drawable/_bg__doctor_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="375dp"
+					android:layout_height="812dp" />
+
+
+				<RelativeLayout android:id="@+id/page_header"
+					android:layout_marginTop="60dp"
+					android:layout_marginStart="16dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__page_header_ek1"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="36dp" />
+
+					<TextView android:id="@+id/login"
+						android:layout_gravity="center_vertical|end"
+						android:gravity="end"
+						android:textSize="16sp"
+						android:textColor="@color/login_color"
+						android:layout_marginLeft="340dp"
+						android:layout_marginTop="8dp"
+						android:layout_width="7dp"
+						android:layout_height="23.6dp"
+						 />
+
+					<TextView android:id="@+id/sign_up"
+						android:textStyle="bold"
+						android:layout_gravity="center_horizontal|center"
+						android:gravity="center"
+						android:textSize="30sp"
+						android:textColor="@color/_bg__page_header_ek1_color"
+						android:layout_marginLeft="70dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="210dp"
+						android:layout_height="45dp"
+						android:text="ผู้กรอกข้อมูลยา"
+						 />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/input_text"
+					android:layout_marginTop="133dp"
+					android:layout_marginStart="16dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__input_text_ek1"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp" />
+
+					<EditText android:id="@+id/inputname"
+						android:src="@drawable/bg"
+						android:contentDescription="bg"
+						 android:layout_marginStart="-1dp"
+						android:layout_marginTop="-1dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp"
+						android:hint="ชื่อยา"/>
+
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/input_text_ek2"
+					android:layout_marginTop="201dp"
+					android:layout_marginStart="16dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__input_text_ek3"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="339dp"
+						android:layout_height="136dp" />
+
+					<EditText android:id="@+id/inputprop"
+						android:src="@drawable/bg_ek1"
+						android:contentDescription="bg_ek1"
+						 android:layout_marginStart="-1dp"
+						android:layout_marginTop="-1dp"
+						android:layout_width="339dp"
+						android:layout_height="136dp"
+						android:hint="สรรพคุณ"/>
+
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/input_text_ek4"
+					android:layout_marginTop="356dp"
+					android:layout_marginStart="16dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__input_text_ek5"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp" />
+
+					<EditText android:id="@+id/inputwarn"
+						android:src="@drawable/bg_ek2"
+						android:contentDescription="bg_ek2"
+						 android:layout_marginStart="-1dp"
+						android:layout_marginTop="-1dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp"
+						android:hint="คำเตือน"/>
+
+
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/button_primary"
+					android:layout_marginTop="737dp"
+					android:layout_marginStart="175dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<Button   android:id="@+id/Nexttoqr"
+						android:background="@drawable/_bg__button_primary_ek1_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="181dp"
+						android:layout_height="52dp"
+						android:textStyle="bold"
+						android:textSize="15sp"
+						android:text="ตกลง"/>
+
+
+
+				</RelativeLayout>
+
+				<TextView android:id="@+id/__________"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="58dp"
+					android:layout_marginTop="509dp"
+					android:layout_width="59.1dp"
+					android:layout_height="16.1dp"
+					android:text="ก่อนอาหาร"
+					 />
+
+				<TextView android:id="@+id/_____"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="58dp"
+					android:layout_marginTop="572dp"
+					android:layout_width="26.1dp"
+					android:layout_height="16.1dp"
+					android:text="เช้า"
+					 />
+
+				<TextView android:id="@+id/________"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="118dp"
+					android:layout_marginTop="572dp"
+					android:layout_width="48.1dp"
+					android:layout_height="16.1dp"
+					android:text="กลางวัน"
+					 />
+
+				<TextView android:id="@+id/______ek1"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="200dp"
+					android:layout_marginTop="572dp"
+					android:layout_width="29.1dp"
+					android:layout_height="16.1dp"
+					android:text="เย็น"
+					 />
+
+				<TextView android:id="@+id/_________ek1"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="263dp"
+					android:layout_marginTop="572dp"
+					android:layout_width="52.1dp"
+					android:layout_height="16.1dp"
+					android:text="ก่อนนอน"
+					 />
+
+				<TextView android:id="@+id/___________ek1"
+					android:textSize="13sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="154dp"
+					android:layout_marginTop="509dp"
+					android:layout_width="58.1dp"
+					android:layout_height="16.1dp"
+					android:text="หลังอาหาร"
+					 />
+
+				<TextView android:id="@+id/_____4_6_________________________"
+					android:textSize="11sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="258dp"
+					android:layout_marginTop="507dp"
+					android:layout_width="85.1dp"
+					android:layout_height="29.1dp"
+					android:text="ทุก 4-6 ชั่วโมงหรือหลังเมื่อมีอาการ"
+					 />
+
+				<TextView android:id="@+id/_________ek2"
+					android:textSize="16sp"
+					android:textColor="@color/_bg__page_header_ek1_color"
+					android:layout_marginLeft="22dp"
+					android:layout_marginTop="443dp"
+					android:layout_width="55.6dp"
+					android:layout_height="23.6dp"
+					android:text="ครั้งละ"
+					 />
+
+
+				<RelativeLayout android:id="@+id/checkbox"
+					android:layout_marginTop="507dp"
+					android:layout_marginStart="27dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+
+					<RelativeLayout android:id="@+id/frame_13"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+						<RelativeLayout android:id="@+id/checkbox_empty"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox1"
+								android:background="@drawable/bg_ek3_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek2"
+					android:layout_marginTop="570dp"
+					android:layout_marginStart="27dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__checkbox_ek3"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="16dp"
+						android:layout_height="16dp" />
+
+
+					<RelativeLayout android:id="@+id/frame_13_ek2"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__frame_13_ek3"
+							 android:layout_marginStart="0dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="36dp"
+							android:layout_height="36dp" />
+
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek2"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox4"
+								android:background="@drawable/bg_ek4_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek4"
+					android:layout_marginTop="570dp"
+					android:layout_marginStart="87dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+
+					<RelativeLayout android:id="@+id/frame_13_ek4"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek4"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox5"
+								android:background="@drawable/bg_ek5_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek6"
+					android:layout_marginTop="570dp"
+					android:layout_marginStart="169dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<RelativeLayout android:id="@+id/frame_13_ek6"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek6"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox6"
+								android:background="@drawable/bg_ek6_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek8"
+					android:layout_marginTop="570dp"
+					android:layout_marginStart="232dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<RelativeLayout android:id="@+id/frame_13_ek8"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek8"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox7"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek10"
+					android:layout_marginTop="507dp"
+					android:layout_marginStart="123dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+
+					<RelativeLayout android:id="@+id/frame_13_ek10"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek10"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox2"
+								android:background="@drawable/bg_ek8_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/checkbox_ek12"
+					android:layout_marginTop="509dp"
+					android:layout_marginStart="224dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<RelativeLayout android:id="@+id/frame_13_ek12"
+						android:layout_marginTop="-10dp"
+						android:layout_marginStart="-10dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+						<RelativeLayout android:id="@+id/checkbox_empty_ek12"
+							android:layout_marginTop="10dp"
+							android:layout_marginStart="10dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<CheckBox   android:id="@+id/checkBox3"
+								android:background="@drawable/bg_ek9_shape"
+								 android:layout_marginStart="-1dp"
+								android:layout_marginTop="-1dp"
+								android:layout_width="16dp"
+								android:layout_height="16dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout
+					android:id="@+id/DropDownMenuBigView"
+					android:layout_width="150dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="78dp"
+					android:layout_marginTop="420dp">
+
+					<com.google.android.material.textfield.TextInputLayout
+						android:id="@+id/DropDownView"
+						style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+
+						<AutoCompleteTextView
+							android:id="@+id/DropDownMenuMed"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:layout_marginLeft="12dp"
+							android:layout_marginTop="10dp"
+							android:text="เลือกจำนวน(เม็ด)"
+							android:inputType="none"
+							android:textSize="12sp" />
+
+					</com.google.android.material.textfield.TextInputLayout>
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>
