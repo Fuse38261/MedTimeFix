@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -51,9 +53,6 @@
             android:name=".Qrcode"
             android:exported="false"
             android:parentActivityName=".payer" />
-
-
-
         <activity
             android:name=".payer"
             android:exported="false"
@@ -65,23 +64,25 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:parentActivityName=".sign_up_activity"/>
 
+
         <activity
             android:name=".SplashScreenActivity"
-            android:exported="false"
-            android:parentActivityName=".SplashScreenActivity"/>
+            android:exported="false"/>
 
         <activity
-                android:name=".sign_up_activity"
-                android:exported="true">
+            android:name=".log_in_activity"
+            android:exported="false"
+            android:parentActivityName=".sign_up_activity"/>
 
-
+        <activity
+            android:name=".sign_up_activity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

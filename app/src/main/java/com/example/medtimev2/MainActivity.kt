@@ -10,13 +10,18 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 
     private var isLoggedIn: Boolean = false
+    private lateinit var auth: FirebaseAuth
+    private lateinit var user: FirebaseUser
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val imageMenu = findViewById<ImageView>(R.id.imageMenu)
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
 
+        if(user == null){
+            val  intent = Intent(this, log_in_activity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val firstActButton = findViewById<CardView>(R.id.card_receiver)
         firstActButton.setOnClickListener {
@@ -53,6 +65,14 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener{
             when(it.itemId){
 
+                R.id.menu_Logout -> {
+                    val  intent = Intent(this, log_in_activity::class.java)
+                    startActivity(intent)
+                    FirebaseAuth.getInstance().signOut()
+                    finish()
+                    true
+                }
+
                 R.id.menu_main -> {
                     val intent3 = Intent(this, MainActivity::class.java)
                     startActivity(intent3)
@@ -65,7 +85,6 @@ class MainActivity : AppCompatActivity() {
                     }else{
                         Toast.makeText(this, "โปรดทำการสแกน Qr-Code ก่อนดูรายการยา", Toast.LENGTH_SHORT).show()
                     }
-
                 true
                 }
                 else -> false

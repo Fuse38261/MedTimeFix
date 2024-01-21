@@ -8,6 +8,10 @@
         <item
             android:id="@+id/menu_itemView"
             android:title="รายการยา" />
+
+        <item
+            android:id="@+id/menu_Logout"
+            android:title="Logout" />
     </group>
 
 

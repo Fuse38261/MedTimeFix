@@ -14,50 +14,72 @@
 package com.example.medtimev2
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
+import android.text.TextUtils
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
-import com.example.medtimev2.R
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class sign_up_activity : Activity() {
-    private var _bg__sign_up_ek2: View? = null
-    private var _bg__page_header_ek1: View? = null
-    private var login: TextView? = null
-    private var sign_up_ek3: TextView? = null
-    private var _bg__input_text_ek1: View? = null
-    private var bg: ImageView? = null
-    private var name: TextView? = null
-    private var _bg__input_text_ek3: View? = null
-    private var bg_ek1: ImageView? = null
-    private var email: TextView? = null
-    private var _bg__input_text_ek5: View? = null
-    private var bg_ek2: ImageView? = null
-    private var password: TextView? = null
-    private var show: TextView? = null
-    private var _bg__button_primary_ek1: View? = null
-    private var sign_up_ek4: TextView? = null
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up)
-        _bg__sign_up_ek2 = findViewById<View>(R.id._bg__sign_up_ek2) as View
-        _bg__page_header_ek1 = findViewById<View>(R.id._bg__page_header_ek1) as View
-        login = findViewById<View>(R.id.login) as TextView
-        sign_up_ek3 = findViewById<View>(R.id.sign_up_ek3) as TextView
-        _bg__input_text_ek1 = findViewById<View>(R.id._bg__input_text_ek1) as View
-        bg = findViewById<View>(R.id.bg) as ImageView
-        name = findViewById<View>(R.id.name) as TextView
-        _bg__input_text_ek3 = findViewById<View>(R.id._bg__input_text_ek3) as View
-        bg_ek1 = findViewById<View>(R.id.bg_ek1) as ImageView
-        email = findViewById<View>(R.id.email) as TextView
-        _bg__input_text_ek5 = findViewById<View>(R.id._bg__input_text_ek5) as View
-        bg_ek2 = findViewById<View>(R.id.bg_ek2) as ImageView
-        password = findViewById<View>(R.id.password) as TextView
-        show = findViewById<View>(R.id.show) as TextView
-        _bg__button_primary_ek1 = findViewById<View>(R.id._bg__button_primary_ek1) as View
-        sign_up_ek4 = findViewById<View>(R.id.sign_up_ek4) as TextView
+        //val Username = findViewById<EditText>(R.id.Username).toString()
+        val records = RecordService.default.records
+        val EditTextEmail = findViewById<EditText>(R.id.Email)
+        val EditTextPassword = findViewById<EditText>(R.id.Password)
+        val Button_Register = findViewById<Button>(R.id._bg__button_primary_ek1)
+        val textView = findViewById<TextView>(R.id.login)
+        val auth = FirebaseAuth.getInstance()
+
+        textView.setOnClickListener {
+            val  intent = Intent(this, log_in_activity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        Button_Register.setOnClickListener {
+            val Email = EditTextEmail.text.toString()
+            val Password =  EditTextPassword.text.toString()
+
+            if (TextUtils.isEmpty(Email)){
+                Toast.makeText(this , "โปรดกรอกอีเมล",Toast.LENGTH_SHORT).show()
+            }
+            if (TextUtils.isEmpty(Password)){
+                Toast.makeText(this , "โปรดกรอกรหัสผ่าน",Toast.LENGTH_SHORT).show()
+            }
 
 
-        //custom code goes here
+            auth.createUserWithEmailAndPassword(Email, Password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("Sign_in_Success", "createUserWithEmail:success")
+                        val user = auth.currentUser
+                        Toast.makeText(
+                            baseContext,
+                            "ลงชื่อเข้าใข้สำเร็จ",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+
+
+
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("Sign_in_Failed", "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(
+                            baseContext,
+                            "Authentication failed.",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+
+                    }
+                }
+        }
     }
 }

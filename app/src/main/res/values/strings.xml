@@ -29,4 +29,9 @@
     <string name="show_string">"แสดง"</string>
     <string name="sign_up_ek4_string">"ลงชื่อเข้าใช้"</string>
 
+    <string name="log_in_ek3_string"/>
+    <string name="log_in_ek4_string"/>
+    <string name="_______string"/>
+    <string name="__________string"/>
+
 </resources>

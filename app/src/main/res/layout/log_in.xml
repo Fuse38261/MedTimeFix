@@ -6,8 +6,8 @@
 	 *	(Alt+Shift+Ctrl+I).
 	 *
 	 *	@desc 		
-	 *	@file 		sign_up
-	 *	@date 		Tuesday 16th of January 2024 04:36:52 AM
+	 *	@file 		log_in
+	 *	@date 		Wednesday 17th of January 2024 04:06:38 PM
 	 *	@title 		Page 1
 	 *	@author 	
 	 *	@keywords 	
@@ -15,7 +15,7 @@
 	 *
 	 */
 	-->
-	<ScrollView android:id="@+id/sign_up" 
+	<ScrollView android:id="@+id/log_in" 
 		android:layout_width="wrap_content" 
 		android:layout_height="match_parent" >
 
@@ -25,14 +25,15 @@
 
 
 
-			<RelativeLayout android:id="@+id/page_sign_up_ek1"
+			<RelativeLayout android:id="@+id/page_log_in_ek1"
 				android:layout_marginTop="0dp"
 				android:layout_marginStart="0dp"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				>
 
-				<View   android:id="@+id/_bg__sign_up_ek2"
+				<View   android:id="@+id/_bg__log_in_ek2"
+					android:background="@drawable/_bg__log_in_ek2_shape"
 					 android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp"
 					android:layout_width="375dp"
@@ -53,100 +54,38 @@
 						android:layout_height="36dp" />
 
 					<TextView
-						android:id="@+id/login"
-						android:layout_width="69dp"
+						android:id="@+id/register"
+						android:layout_width="75dp"
 						android:layout_height="23.6dp"
 						android:layout_gravity="center_vertical|end"
 						android:layout_marginLeft="278dp"
 						android:layout_marginTop="8dp"
 						android:fontFamily="@font/inter_medium"
 						android:gravity="end"
-						android:text="@string/login_string"
+						android:text="ลงชื่อเข้าใช้"
 						android:textColor="@color/login_color"
 						android:textSize="15sp" />
 
-					<TextView
-						android:id="@+id/sign_up_ek3"
-						android:layout_width="147dp"
-						android:layout_height="45dp"
-						android:layout_gravity="center_horizontal|center"
-						android:layout_marginLeft="99dp"
-						android:layout_marginTop="0dp"
-						android:fontFamily="@font/inter_medium"
-						android:gravity="center"
-						android:text="ลงชื่อเข้าใช้"
-						android:textColor="@color/_bg__page_header_ek1_color"
-						android:textSize="26sp"
+					<TextView android:id="@+id/log_in_ek3"
 						android:textStyle="bold"
-
-						/>
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/input_text"
-					android:layout_marginTop="210dp"
-					android:layout_marginStart="16dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					/>
-
-
-				<RelativeLayout android:id="@+id/input_text_ek2"
-					android:layout_marginTop="308dp"
-					android:layout_marginStart="16dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<EditText   android:id="@+id/Email"
-						 android:layout_marginStart="0dp"
+						android:layout_gravity="center_horizontal|center"
+						android:gravity="center"
+						android:textSize="26sp"
+						android:textColor="@color/_bg__page_header_ek1_color"
+						android:layout_marginLeft="107dp"
 						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="50dp"
-						android:textColorHint="@color/name_color"
-						android:hint="อีเมล"/>
-
-
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/input_text_ek4"
-					android:layout_marginTop="406dp"
-					android:layout_marginStart="20dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<EditText   android:id="@+id/Password"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="50dp"
-						android:textColorHint="@color/name_color"
-						android:hint="รหัสผ่าน"/>
-
-
-
-					<TextView android:id="@+id/show"
-						android:layout_gravity="center_vertical|end"
-						android:gravity="end"
-						android:textSize="16sp"
-						android:textColor="@color/login_color"
-						android:layout_marginLeft="287dp"
-						android:layout_marginTop="16dp"
-						android:layout_width="44dp"
-						android:layout_height="23.6dp"
-						android:text="@string/show_string"
+						android:layout_width="131dp"
+						android:layout_height="45dp"
+						android:text="เข้าสู่ระบบ"
 						 />
+
 
 				</RelativeLayout>
 
 
 				<RelativeLayout android:id="@+id/button_primary"
-					android:layout_marginTop="527dp"
-					android:layout_marginStart="20dp"
+					android:layout_marginTop="436dp"
+					android:layout_marginStart="16dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					>
@@ -165,6 +104,92 @@
 
 
 				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/input"
+					android:layout_marginTop="169dp"
+					android:layout_marginStart="20dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<EditText   android:id="@+id/Email_Login"
+						android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp"
+						android:textColorHint="@color/name_color"
+						android:hint="อีเมล"/>
+
+
+					<RelativeLayout android:id="@+id/dismiss_button"
+						android:layout_marginTop="7dp"
+						android:layout_marginStart="305dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+
+					</RelativeLayout>
+
+
+					<RelativeLayout android:id="@+id/text_container"
+						android:layout_marginTop="7dp"
+						android:layout_marginStart="16dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/input_ek2"
+					android:layout_marginTop="258dp"
+					android:layout_marginStart="20dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<EditText   android:id="@+id/Password_Login"
+						android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="50dp"
+						android:textColorHint="@color/name_color"
+						android:hint="รหัสผ่าน"/>
+
+
+					<RelativeLayout android:id="@+id/dismiss_button_ek2"
+						android:layout_marginTop="7dp"
+						android:layout_marginStart="305dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+
+					</RelativeLayout>
+
+
+					<RelativeLayout android:id="@+id/text_container_ek2"
+						android:layout_marginTop="7dp"
+						android:layout_marginStart="16dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+
 
 			</RelativeLayout>
 		</RelativeLayout>
