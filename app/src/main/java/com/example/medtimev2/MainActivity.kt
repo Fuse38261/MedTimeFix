@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         val secondActButton = findViewById<CardView>(R.id.card_payer)
         secondActButton.setOnClickListener {
-            val intent2 = Intent(this, payer2::class.java)
+            val intent2 = Intent(this, payer::class.java)
             startActivity(intent2)
         }
 

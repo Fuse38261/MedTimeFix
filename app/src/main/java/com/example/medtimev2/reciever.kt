@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -18,6 +19,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
@@ -48,6 +52,7 @@ class reciever : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reciever)
+
 
         val actionBar = supportActionBar
         actionBar!!.title = "ผู้รับยา"
@@ -179,6 +184,27 @@ class reciever : AppCompatActivity() {
                             this.baseContext.startActivity(intent)
                             isDetected = false
                             scanChecked = true
+
+                            var record: Record? = null
+
+                            val userMap = hashMapOf(
+                                "name" to record?.name,
+                                "property" to record?.property,
+                                "warning" to record?.warning,
+                                "countPerTime" to record?.countPerTime,
+                                "timePerDay" to record?.timePerDay,
+                                "timeMeal" to record?.timeMeal
+                            )
+                            var db = Firebase.firestore
+                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
+                            db.collection("user").document(userId).set(userMap)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Sucessfully  Added", Toast.LENGTH_SHORT).show()
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                                }
+
                         }
                         dialog.cancelCallback = {
                             isDetected = false

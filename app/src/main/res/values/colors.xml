@@ -11,6 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="_bg__doctor_ek2_color">#FFFFFF</color>
     <color name="_bg__sign_up_ek2_color">#FFFFFF</color>
     <color name="_bg__page_header_ek1_color">#000000</color>
     <color name="login_color">#5DB074</color>

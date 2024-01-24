@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,6 +15,8 @@ import com.google.android.material.navigation.NavigationView
 
 class RecordListActivity : AppCompatActivity(){
 
+    private var isLoggedIn: Boolean = false
+
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,7 @@ class RecordListActivity : AppCompatActivity(){
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val imageMenu2 = findViewById<ImageView>(R.id.med)
+
 
         // Make image to click an open the drawer
         imageMenu2.setOnClickListener {
@@ -43,7 +47,18 @@ class RecordListActivity : AppCompatActivity(){
                     val intent6 = Intent(this, RecordListActivity::class.java)
                     startActivity(intent6)
                     true
+            }R.id.menu_itemView -> {
+
+                if (isLoggedIn == true){
+                    val intent4 = Intent(this, RecordListActivity::class.java)
+                    startActivity(intent4)
+                }else{
+                    Toast.makeText(this, "โปรดทำการสแกน Qr-Code ก่อนดูรายการยา", Toast.LENGTH_SHORT).show()
+                }
+                true
             }
+
+
                 else -> false
             }
 
