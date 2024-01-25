@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_payer"
         android:padding="5dp"
         tools:context=".payer">
 
@@ -33,7 +32,6 @@
             android:layout_height="52dp"
             android:layout_margin="10dp"
             android:layout_marginTop="24dp"
-            android:background="#28E3FFE0"
             android:hint="ชื่อยา"
             android:textColorHint="#97FFFFFF"
             android:minHeight="30dp"
@@ -61,7 +59,6 @@
             android:layout_width="361dp"
             android:layout_height="52dp"
             android:layout_margin="10dp"
-            android:background="#28E3FFE0"
             android:hint="สรรพคุณ"
             android:minHeight="30dp"
             android:padding="10dp"
@@ -80,7 +77,6 @@
             android:layout_width="361dp"
             android:layout_height="59dp"
             android:layout_margin="10dp"
-            android:background="#28E3FFE0"
             android:hint="คำเตือน"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -117,17 +113,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/inputmed"
-            android:layout_width="65dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="468dp"
-            android:hint="จำนวน"
-            android:minHeight="48dp"
-            android:textSize="20dp"
-            app:layout_constraintStart_toEndOf="@+id/medtime"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputmed"
+                android:layout_width="120dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="468dp"
+                android:hint="ครั้งละ"
+                app:layout_constraintStart_toEndOf="@+id/medtime"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dropDownVerticalOffset="10dp"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textmed"
@@ -153,24 +158,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputtime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_width="120dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="552dp"
-            android:hint="จำนวน"
-            android:minHeight="48dp"
-            android:textSize="20dp"
+            android:hint="ครั้งละ"
             app:layout_constraintStart_toEndOf="@+id/medday"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_txt2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <TextView
             android:id="@+id/textmed2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="568dp"
             android:text="ครั้งต่อวัน"
             android:textSize="22dp"

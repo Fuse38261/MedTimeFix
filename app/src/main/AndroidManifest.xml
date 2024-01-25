@@ -69,9 +69,7 @@
             android:parentActivityName=".sign_up_activity"/>
 
 
-        <activity
-            android:name=".SplashScreenActivity"
-            android:exported="false"/>
+
 
         <activity
             android:name=".log_in_activity"
@@ -80,6 +78,10 @@
 
         <activity
             android:name=".sign_up_activity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

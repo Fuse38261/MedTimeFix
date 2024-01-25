@@ -2,6 +2,9 @@ package com.example.medtimev2
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -21,8 +24,9 @@ class payer : AppCompatActivity() {
     private lateinit var afterMealCheckBox: CheckBox
     private lateinit var beforeSleepCheckBox: CheckBox
     private lateinit var medImage: ImageView
-
-
+    private lateinit var autoCompleteTextView: AutoCompleteTextView
+    private lateinit var autoCompleteTextView2: AutoCompleteTextView
+    private lateinit var adapterItems: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +41,34 @@ class payer : AppCompatActivity() {
         nameText = findViewById(R.id.inputname)
         propertiesText = findViewById(R.id.inputprop)
         warningText = findViewById(R.id.inputwarn)
-        countPerTimeText = findViewById(R.id.inputmed)
-        timePerDayText = findViewById(R.id.inputtime)
+        countPerTimeText = findViewById(R.id.auto_complete_txt)
+        timePerDayText = findViewById(R.id.auto_complete_txt2)
         beforeMealCheckBox = findViewById(R.id.checkBox1)
         afterMealCheckBox = findViewById(R.id.checkBox2)
         beforeSleepCheckBox = findViewById(R.id.checkBox3)
+
+        val items = arrayOf("1", "2", "3", "4", "5", "6")
+
+        autoCompleteTextView = findViewById(R.id.auto_complete_txt)
+        adapterItems = ArrayAdapter(this, R.layout.list_item, items)
+
+        autoCompleteTextView.setAdapter(adapterItems)
+
+        autoCompleteTextView.setOnItemClickListener(AdapterView.OnItemClickListener { _, _, position, _ ->
+            // Handle item click
+            val selectedItem = adapterItems.getItem(position)
+            showToast("Selected: $selectedItem")
+        })
+
+        // Second AutoCompleteTextView
+        autoCompleteTextView2 = findViewById(R.id.auto_complete_txt2)
+        autoCompleteTextView2.setAdapter(adapterItems)
+
+        autoCompleteTextView2.setOnItemClickListener(AdapterView.OnItemClickListener { _, _, position, _ ->
+            // Handle item click for the second AutoCompleteTextView
+            val selectedItem = adapterItems.getItem(position)
+            showToast("Selected for AutoCompleteTextView2: $selectedItem")
+        })
 
 
         val qrcode = findViewById<Button>(R.id.Nexttoqr)
@@ -92,5 +119,8 @@ class payer : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
