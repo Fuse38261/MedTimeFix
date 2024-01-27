@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        if (user !== null) {
+            Log.d(TAG, "User found, reloading records from Firestore...")
+            RecordService.default.reloadRecords()
+        }
+
         val firstActButton = findViewById<CardView>(R.id.card_receiver)
         firstActButton.setOnClickListener {
             Log.d("receiveBtn","Button has been clicked")
@@ -78,8 +83,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent3)
                     true
                 }R.id.menu_itemView -> {
-
-                    if (isLoggedIn == true){
+                    if (RecordService.default.records.size != 0) {
                         val intent4 = Intent(this, RecordListActivity::class.java)
                         startActivity(intent4)
                     }else{

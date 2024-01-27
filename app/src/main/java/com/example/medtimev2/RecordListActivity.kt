@@ -34,31 +34,27 @@ class RecordListActivity : AppCompatActivity(){
 
         // Set the NavigationView menu to change the activity when clicked
         val navView = findViewById<NavigationView>(R.id.navigationView3)
-        navView.setNavigationItemSelectedListener{
-            when(it.itemId){
-
+        navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
                 R.id.menu_main -> {
-
                     val intent5 = Intent(this, MainActivity::class.java)
                     startActivity(intent5)
                     true
-                }R.id.menu_itemView -> {
-
-                    val intent6 = Intent(this, RecordListActivity::class.java)
-                    startActivity(intent6)
-                    true
-            }R.id.menu_itemView -> {
-
-                if (isLoggedIn == true){
-                    val intent4 = Intent(this, RecordListActivity::class.java)
-                    startActivity(intent4)
-                }else{
-                    Toast.makeText(this, "โปรดทำการสแกน Qr-Code ก่อนดูรายการยา", Toast.LENGTH_SHORT).show()
                 }
-                true
-            }
 
-
+                R.id.menu_itemView -> {
+                    if (RecordService.default.records.size != 0) {
+                        val intent4 = Intent(this, RecordListActivity::class.java)
+                        startActivity(intent4)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "โปรดทำการสแกน Qr-Code ก่อนดูรายการยา",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    true
+                }
                 else -> false
             }
 

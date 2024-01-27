@@ -1,6 +1,7 @@
 package com.example.medtimev2
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -27,6 +28,15 @@ class Record() : Parcelable {
 
         //direction = Direction.valueOf(parcel.readString().toString())
         //directionDate = parcel.readParcelable(DirectionDate.javaClass.classLoader)
+    }
+
+    constructor(map: Map<String, Any>): this() {
+        name = map["name"].toString()
+        property = map["property"].toString()
+        warning = map["warning"].toString()
+        countPerTime = map["countPerTime"] as Double
+        timePerDay = (map["timePerDay"] as Number).toInt()
+        timeMeal = map["timeMeal"].toString()
     }
 
 
